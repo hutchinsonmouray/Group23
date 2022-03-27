@@ -1,4 +1,4 @@
-# Group23
+# StudyStream
 here is our read me
 
 Here is the video that our routing/file structure is based on
