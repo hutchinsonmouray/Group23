@@ -34,40 +34,28 @@ import UploadLecture from "./UploadLecture";
     return (
         <Container maxidth={"lg"}>
             <AppBar className={classes.appBar} position = "static" color ="inherit">
+
                   <NavLink to={"/upload_lecture"}>
                     <button>
                         <p>upload sets</p>
                     </button>
-                      </NavLink>
+                  </NavLink>
 
                 <Typography className={classes.heading} variant="h2" align="center">StudyStream</Typography>
 
-                        <NavLink to={"/upload_lecture"}>
-                            <button>
-                                <p>upload posts/lecutures</p>
-                            </button>
-                        </NavLink>
+                <NavLink to={"/upload_lecture"}>
+                    <button>
+                        <p>upload posts/lecutures</p>
+                    </button>
+                </NavLink>
+
             </AppBar>
             {/*//make back <Button className={classes.buttonSubmit} variant="contained" color="primary" size="small" type="submit" fullWidth>Submit Lecture</Button>*/}
             <Grow in>
                 <Grid container justify="space-between" alignItems="stretch" spacing={3} flexDirection="row">
-
-                    <button onClick= {UploadLecture} >
-                        <img className={classes.image} src = {memories} alt = "StudyStream Logo" height="60"/>
-                        <p>see posts</p>
-                        {/*<img src="https://www.tutorialspoint.com/latest/inter-process-communication.png " />*/}
-                    </button>
-
                     <Grid item xs={12} sm={7}>
                             <Posts/>
                         </Grid>
-
-                    <button onClick= {UploadLecture} >
-                        <img className={classes.image} src = {memories} alt = "StudyStream Logo" height="60"/>
-                        {/*<img src="https://www.tutorialspoint.com/latest/inter-process-communication.png " />*/}
-                        <p>see sets</p>
-
-                    </button>
                     <Grid item xs={12} sm={7}>
                             <Sets/>
                         </Grid>
@@ -75,16 +63,19 @@ import UploadLecture from "./UploadLecture";
             </Grow>
 
             <AppBar className={classes.appBar} position = "relative" color ="inherit">
-                <button onClick= {LearnSS}>
-                    <p>LearnSS</p>
-                    <img className={classes.image} src = {memories} alt = "StudyStream Logo" height="60"/>
-                    {/*<img src="https://www.tutorialspoint.com/latest/inter-process-communication.png " />*/}
-                </button>
-                <button type = "submit" name = "learn" value = "myimage" onClick={LearnSS}>
-                    <p>delete Set</p>
-                    <img className={classes.image} src = {memories} alt = "StudyStream Logo" height="60"/>
-                    {/*<img src="https://www.tutorialspoint.com/latest/inter-process-communication.png " />*/}
-                </button>
+                <NavLink to={"/LearnSS"}>
+                    <button>
+                        <p>Learn SS</p>
+                    </button>
+                </NavLink>
+
+                <NavLink to={"/LearnSS"}>
+                    <button>
+                        <p>User Profile LearnSS Based</p>
+                    </button>
+                </NavLink>
+
+
             </AppBar>
         </Container>
 );
