@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 
 import {createPost} from "./api/index";
+import {NavLink} from "react-router-dom";
 
 const LectForm = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
@@ -74,9 +75,20 @@ function UploadLecture() {
 
     return (
         <Container maxidth={"lg"}>
+
+            <NavLink to={"/"}>
             <AppBar className={classes.appBar} position = "static" color ="inherit">
                 <Typography className={classes.heading} variant="h2" aligin="center">StudyStream</Typography>
             </AppBar>
+            </NavLink>
+
+            {/*/!*Home Button*!/*/}
+            {/*<NavLink to={"/"}>*/}
+            {/*    <button>*/}
+            {/*        <p>Home</p>*/}
+            {/*    </button>*/}
+            {/*</NavLink>*/}
+
             <Grow in>
                 <Grid container justify="center" alignItems="stretch" spacing={3}>
                     <Grid item xs={12} sm={7}>
