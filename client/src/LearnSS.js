@@ -44,15 +44,11 @@ const LearnSS = () => {
                     </Grid>
                 </Grid>
             </Grow>
-            <div>
-                This is Study Stream NO PAPER! The point of our app is to....INSERT
-            </div>
             <Paper className={classes.paper}>
                 {/*add a border and make it look nice w/ typ*/}
-                <Typography className={classes.heading} variant="h5" aligin="center">h5 LearnSS Line 44</Typography>
-                <Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 LearnSS Line 44</Typography>
-                <Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS Line 44</Typography>
-
+                <Typography className={classes.heading} variant="h5" aligin="center">h5 LearnSS</Typography>
+                <Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 LearnSS</Typography>
+                <Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS</Typography>
                 <form>
                     <div>
                          PAPER: This is Study Stream! The point of our app is to....INSERT

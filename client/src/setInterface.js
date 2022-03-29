@@ -47,9 +47,9 @@ const SetInterface = () => {
             </div>
             <Paper className={classes.paper}>
                 {/*add a border and make it look nice w/ typ*/}
-                <Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>
-                <Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>
-                <Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>
+                {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
+                {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>*/}
+                {/*<Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>*/}
 
                 <form>
                     <div>

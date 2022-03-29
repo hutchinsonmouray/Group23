@@ -1,6 +1,7 @@
 //uses index.js form api
 
-import * as api from '../api/index.js'; //imports all functiond from action
+import * as api from '../api/index.js';
+import {CREATE} from "../constants/actionTypes"; //imports all functiond from action
 
 //Action Creators
   export const getSets = () => async (dispatch) => {
@@ -9,6 +10,16 @@ import * as api from '../api/index.js'; //imports all functiond from action
 
     dispatch({ type: 'FETCH_ALL', payload: data });
 
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const createSet = (set) => async (dispatch) => {
+  try {
+    const {data} = await api.createSet(set);
+
+    dispatch({type: CREATE, payload: data});
   } catch (error) {
     console.log(error.message);
   }

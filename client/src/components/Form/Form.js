@@ -35,7 +35,8 @@ const Form = ({ currentId, setCurrentId }) => {
     // }
   };
 
-  return ( //form outline
+  return (
+      // form outline
       <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
           <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Upload a Lecture'}</Typography>

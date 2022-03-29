@@ -109,8 +109,6 @@ int main() {
                     "12:39\n"
                     "Let me see how can I put this okay so you've completed the peer evaluation and you've scored your peers on your team, and you will receive a sprint zero grade and all the associated assignments, so the associate assignments, where the user stories software architecture.";
 
-
-
     parseIntoCards(input);
 
     // remove all ',' and '.'
