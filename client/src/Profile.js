@@ -46,9 +46,11 @@ const Profile = () => {
             </Grow>
             <Paper className={classes.paper}>
                 {/*add a border and make it look nice w/ typ*/}
-                <Typography className={classes.heading} variant="h5" aligin="center">h5 User Profile</Typography>
-                <Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1</Typography>
-                <Typography className={classes.heading} variant="body2" aligin="center">body2</Typography>
+                <Typography className={classes.heading} variant="h5" aligin="center">User Profile</Typography>
+                {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> Username</Typography>*/}
+                {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> Password</Typography>*/}
+                {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> Email</Typography>*/}
+                {/*<Typography className={classes.heading} variant="body2" aligin="center">body2</Typography>*/}
                 <form>
                     <div>
                         PAPER: This is the content for the profile page.

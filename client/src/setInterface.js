@@ -42,9 +42,6 @@ const SetInterface = () => {
                     </Grid>
                 </Grid>
             </Grow>
-            <div>
-                This is Study Stream NO PAPER! The point of our app is to....INSERT
-            </div>
             <Paper className={classes.paper}>
                 {/*add a border and make it look nice w/ typ*/}
                 {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
@@ -53,7 +50,7 @@ const SetInterface = () => {
 
                 <form>
                     <div>
-                         PAPER: This is The Set interface
+                         This is The Set interface
                     </div>
                 </form>
             </Paper>

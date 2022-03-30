@@ -28,7 +28,6 @@ const SetInterface = () => {
 
     return (
         <Container maxidth={"lg"}>
-            <Typography className={classes.heading} variant="h5" aligin="center">h5 Lecture interface (Model after the Set one)</Typography>
             {/*Header Bar*/}
             <NavLink to={"/"}>
                 <AppBar className={classes.appBar} position = "static" color ="inherit">
@@ -36,17 +35,25 @@ const SetInterface = () => {
                 </AppBar>
             </NavLink>
 
+            {/*add a border and make it look nice w/ typ*/}
+            {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
+            {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>*/}
+            {/*<Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>*/}
+
             <Grow in>
                 <Grid container justify="space-between" alignItems="stretch" spacing={3}>
                     <Grid item xs={12} sm={7}>
                     </Grid>
                 </Grid>
             </Grow>
-            <div>
-                no paper
-            </div>
             <Paper className={classes.paper}>
-                paper
+            This is the Lecture Interface
+
+                <Paper className={classes.paper}>
+                    This is the Lecture Summary (Adam) </Paper>
+
+                <Paper className={classes.paper}>
+                    This is the Class Interaction (Abby) </Paper>
             </Paper>
         </Container>
     );

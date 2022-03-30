@@ -46,12 +46,17 @@ const LearnSS = () => {
             </Grow>
             <Paper className={classes.paper}>
                 {/*add a border and make it look nice w/ typ*/}
-                <Typography className={classes.heading} variant="h5" aligin="center">h5 LearnSS</Typography>
-                <Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 LearnSS</Typography>
-                <Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS</Typography>
+                {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 LearnSS</Typography>*/}
+                {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 LearnSS</Typography>*/}
+                {/*<Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS</Typography>*/}
                 <form>
                     <div>
-                         PAPER: This is Study Stream! The point of our app is to....INSERT
+                        <Typography className={classes.heading} variant="h5" aligin="center">Purpose</Typography>
+                        Purpose
+                        <Typography className={classes.heading} variant="h5" aligin="center">User Guide</Typography>
+                        User Guide
+                        <Typography className={classes.heading} variant="h5" aligin="center">FAQs</Typography>
+                        FAQs
                     </div>
                 </form>
             </Paper>

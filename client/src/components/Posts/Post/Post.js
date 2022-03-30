@@ -5,9 +5,9 @@ const Post = () => {
     const classes = useStyles();
     return (
         <Grid>
-            {/*<Paper elevation={5}>*/}
+            <Paper elevation={5} stretch="tight">
                 <h1>Lecture</h1>
-            {/*</Paper>*/}
+            </Paper>
         </Grid>
 
     );
