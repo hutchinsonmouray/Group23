@@ -2,10 +2,13 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
+#include <unordered_set>
 #include <sstream>
+#include <fstream>
 using namespace std;
 
-unordered_map<string,string> parseIntoCards(string input)
+
+unordered_map<string,string> parseIntoCardsFromAudio(string& input)
 {
     // ================================= //
     // =========== VARIABLES =========== //
@@ -33,11 +36,14 @@ unordered_map<string,string> parseIntoCards(string input)
         else if(state == period)
         {
             //to check what is being loaded
-            cout << keywrd << endl << def << endl;
+            //cout << keywrd << endl << def << endl;
 
-            //store into map
-            words.insert(pair<string,string>(keywrd,def));
-
+            // a check to see if the teacher said keyword
+            if(keywrd != "")
+            {
+                //store into map
+                words.insert(pair<string,string>(keywrd,def));
+            }
             //reset vars
             state = nothing;
             keywrd = "";
@@ -47,13 +53,102 @@ unordered_map<string,string> parseIntoCards(string input)
         else if (word == "Definition" || word == "definition") state = definition;
         else if (word == "period" || word == "Period" || word == "period.") state = period;
     }
+
+    if (words.size() != 0) cout << "Flash cards created from teacher audio! " << endl << endl;
 return words;
+
+}
+
+unordered_map<string,string> parseIntoCardsFromChat(string& input)
+{
+    // ================================= //
+    // =========== VARIABLES =========== //
+    // ================================= //
+
+    enum kind { keyword, definition, period, nothing };
+    kind state = nothing;
+    unordered_map<string,string> words;
+    string word; // word variable to store word
+    string keywrd = "";
+    string def = "";
+
+    // making a string stream
+    stringstream iss(input);
+
+    // ================================= //
+    // =========== PARSING =========== //
+    // ================================= //
+    // Read each word
+    while (iss >> word)
+    {
+        if (word == ".") state = period;
+        if(state == keyword && word != "Definition" && word != "definition") keywrd += word + " ";
+        else if(state == definition && word != ".") def += word + " ";
+        else if(state == period)
+        {
+            //to check what is being loaded
+            //cout << keywrd << endl << def << endl;
+
+            // a check to see if the teacher said keyword
+            if(keywrd != "")
+            {
+                //store into map
+                words.insert(pair<string,string>(keywrd,def));
+            }
+            //reset vars
+            state = nothing;
+            keywrd = "";
+            def = "";
+        }
+        if (word == "Keyword" || word == "keyword") state = keyword;
+        else if (word == "Definition" || word == "definition") state = definition;
+        else if (word == ".") state = period;
+    }
+    if (words.size() != 0) cout << "Flash cards created from student chat! " << endl << endl;
+
+    return words;
+
+}
+
+void createCSV(unordered_map<string,string>& words)
+{
+    ofstream myfile;
+    myfile.open ("/Users/abigailmartinez/Desktop/csv.txt");
+    unordered_map<string, string>::iterator it;
+    for (it = words.begin(); it != words.end(); it++)
+    {
+        myfile << it->first + "," + it->second + "\n";
+    }
+    myfile.close();
+
+    cout << "csv file created." << endl<<endl;
+}
+
+void classInteraction(unordered_map<string,string>& words, string& input)
+{
+    ///is class interaction how many times a teacher and the student says/types the keywords in each lecture?
+        //if so, merge the two maps
+
+    //Class interaction from the audio transcript
+    vector<string> w;
+    string word; // word variable to store word
+    stringstream iss(input);
+    while (iss >> word) w.push_back(word);
+
+    unordered_map<std::string , int> count;
+    for (const string & s : w) { ++count[s]; }
+
+    cout << "printing class interaction" << endl;
+    for (const auto & p : count)
+        if ( words.find(p.first + ' ') != words.end())
+            cout << "Word '" << p.first << "' occurs " << p.second << " times.\n";
 
 }
 
 
 
 int main() {
+    unordered_map<string,string> words;
     string input = "    Hello welcome to class\n"
                    "    Today we will be going over algorithms\n"
                    "    Keyword time complexity definition is the computational complexity that describes the amount of computer time it takes to run an algorithm period\n"
@@ -109,12 +204,19 @@ int main() {
                     "12:39\n"
                     "Let me see how can I put this okay so you've completed the peer evaluation and you've scored your peers on your team, and you will receive a sprint zero grade and all the associated assignments, so the associate assignments, where the user stories software architecture.";
 
+    string input4 = "hello keyword hi definition cool period \n"
+                    "keyword hi definition no period \n"
+                    "keyword hi definition si period \n"
+                    "keyword hello definition no period\n";
 
 
-    parseIntoCards(input);
+    words = parseIntoCardsFromAudio(input3);
 
-    // remove all ',' and '.'
-    // to count how many times keyword was said, store all keywords into vector and store all words from transcript into a set?
+    createCSV(words);
+
+    classInteraction(words,input3);
+
+
 
     return 0;
 }
