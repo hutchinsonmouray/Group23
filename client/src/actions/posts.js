@@ -1,6 +1,7 @@
 //uses index.js form api
 
-import * as api from '../api/index.js'; //imports all functions from action
+import * as api from '../api/index.js';
+import {CREATE} from "../constants/actionTypes"; //imports all functions from action
 
 //Creates Actions
  export const getPosts = () => async (dispatch) => {
@@ -12,16 +13,16 @@ import * as api from '../api/index.js'; //imports all functions from action
   } catch (error) {
     console.log(error.message);
   }
-}
+};
 export const createPost = (post) => async (dispatch) => {
-    // try {
-    //     const {data} = await api.createPost(post);
-    //
-    //     dispatch({type: CREATE, payload: data});
-    // } catch (error) {
-    //     console.log(error.message);
-    // }
-}
+    try {
+        const {data} = await api.createPost(post);
+
+        dispatch({type: CREATE, payload: data});
+    } catch (error) {
+        console.log(error.message);
+    }
+};
 
 // import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionTypes';
 //

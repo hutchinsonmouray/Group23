@@ -17,6 +17,8 @@ import Home from "./Home"; //sample for extra page
 import { BrowserRouter,Routes, Route} from "react-router-dom";
 import SetInterface from "./setInterface";
 import LectureInterface from "./lectureInterface";
+import Profile from "./Profile";
+import UploadSet from "./UploadSet";
 
 const App = () => {
     const  classes = useStyles();
@@ -37,10 +39,15 @@ const App = () => {
                 </Route>
                 <Route path="/Upload_Lecture" element={<UploadLecture/>}>
                 </Route>
+                <Route path="/Upload_Set" element={<UploadSet/>}>
+                </Route>
                 <Route path="/Set_Interface" element={<SetInterface/>}>
                 </Route>
                 <Route path="/Lecture_Interface" element={<LectureInterface/>}>
                 </Route>
+                <Route path="/Profile" element={<Profile/>}>
+                </Route>
+
                 {/*add any new pages here*/}
             </Routes>
         </BrowserRouter>
