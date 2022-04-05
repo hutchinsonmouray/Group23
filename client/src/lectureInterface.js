@@ -50,7 +50,7 @@ const SetInterface = () => {
             This is the Lecture Interface
 
                 <Paper className={classes.paper}>
-                    This is the Lecture Summary (Adam) </Paper>
+                    This is the Lecture Summary (Angelina) </Paper>
 
                 <Paper className={classes.paper}>
                     This is the Class Interaction (Abby) </Paper>
