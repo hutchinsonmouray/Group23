@@ -51,7 +51,85 @@ return words;
 
 }
 
+unordered_map<string,string> lectureSummary(string input)
+{
+    cout << "LECTURE SUMMARY" << endl;
+    cout << "---------------" << endl;
 
+
+    enum kind { keyword, definition, period, nothing };
+    kind state = nothing;
+    unordered_map<string,string> words;
+    string word; // word variable to store word
+    string keywrd = "";
+    string def = "";
+
+    // making a string stream
+    stringstream iss(input);
+
+    string timeStamp = ""; 
+    int count = 0;
+
+    // displays entire list of vocab words
+    while (iss >> word)
+    {
+        if (isdigit(word[0]))
+        {
+            timeStamp = word; // including timestamp of definitions
+        }
+        if (word == "period" || word == "Period")
+            state = period;
+        if (state == keyword && word != "Definition" && word != "definition")
+        {
+            // excluding capitalization of certain words
+            if ((word != "a" && word != "an" && word != "the" && word != "and" && word != "as"
+            && word != "but" && word != "or" && word != "nor" && word != "at" && word != "by"
+            && word != "for" && word != "from" && word != "in" && word != "into" && word != "of"
+            && word != "off" && word != "on" && word != "onto" && word != "out" && word != "up"
+            && word != "with" && word != "to") || (count == 0))
+            {
+                char firstChar = (char) toupper(word[0]);
+                word.erase(0, 1);
+                word = firstChar + word;
+                keywrd += word + " ";
+                count++;
+            }
+            else
+                keywrd += word + " ";
+        }
+        else if (state == definition && word != "period" && word != "Period")
+            def += word + " ";
+        else if (state == period && keywrd != "" && def != "")
+        {
+            keywrd.pop_back();
+            //to check what is being loaded
+            keywrd = "(" + timeStamp + ") " + keywrd;
+
+            cout << keywrd << ": " << def << endl;
+
+            //store into map
+            words.insert(pair<string,string>(keywrd,def));
+
+            //reset vars
+            state = nothing;
+            keywrd = "";
+            def = "";
+            count = 0;
+        }
+        if (word == "Keyword" || word == "keyword")
+            state = keyword;
+        else if (word == "Definition" || word == "definition")
+            state = definition;
+        else if (word == "period" || word == "Period" || word == "period.")
+            state = period;
+    }
+    
+    cout << endl;
+
+
+
+return words;
+}
 
 int main() {
     string input = "    Hello welcome to class\n"
@@ -75,13 +153,13 @@ int main() {
                     "user avatar\n"
                     "Unknown Speaker\n"
                     "07:13\n"
-                    "Oh.\n"
+                    "keyword input and output devices definition anything people use to input information to the computer or to take information out period \n"
                     "user avatar\n"
                     "Dr. Sanethia Thomas (she/her)\n"
                     "11:10\n"
                     "All right, those that are on.\n"
                     "11:13\n"
-                    "Those that are on zoom can you hear me.\n"
+                    "keyword software testing definition the process of evaluating and verifying that a software product or application does what it is supposed to do period .\n"
                     "11:18\n"
                     "Can the zoom participants hear me yes okay perfect Thank you.\n"
                     "11:21\n"
@@ -103,15 +181,14 @@ int main() {
                     "12:26\n"
                     "That, I have here okay very important peer evaluation scores.\n"
                     "12:32\n"
-                    "One second.\n"
+                    "keyword sad definition not happy period\n"
                     "12:34\n"
-                    "Okay perfect all right peer evaluations um.\n"
+                    "keyword an apple definition not an orange period\n"
                     "12:39\n"
                     "Let me see how can I put this okay so you've completed the peer evaluation and you've scored your peers on your team, and you will receive a sprint zero grade and all the associated assignments, so the associate assignments, where the user stories software architecture.";
 
 
-
-    parseIntoCards(input);
+    lectureSummary(input3);
 
     // remove all ',' and '.'
     // to count how many times keyword was said, store all keywords into vector and store all words from transcript into a set?
