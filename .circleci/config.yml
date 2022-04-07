@@ -10,7 +10,7 @@ jobs:
         name: Install npm dependencies
         command: |
           npm install
-      -run:
+      - run:
         name: Run Unit Tests
         command: |
           echo 'Hello World'
