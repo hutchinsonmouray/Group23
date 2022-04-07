@@ -7,13 +7,13 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Install npm dependencies
-        command: |
-          npm install
+          name: Install npm dependencies
+          command: |
+            npm install
       - run:
-        name: Run Unit Tests
-        command: |
-          echo 'Hello World'
+          name: Run Unit Tests
+          command: |
+            echo 'Hello World'
 
 workflows:
   testing_workflow:
