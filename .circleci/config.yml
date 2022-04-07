@@ -14,3 +14,8 @@ jobs:
         name: Run Unit Tests
         command: |
           echo 'Hello World'
+
+workflows:
+  testing_workflow:
+    jobs:
+      - run_tests
