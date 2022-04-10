@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "test": "node hello.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,9 @@
     "express": "^4.17.3",
     "mongoose": "^6.2.4",
     "nodemon": "^2.0.15",
-    "react-router-dom": "^6.2.2"
-  }
+    "react-router-dom": "^6.2.2",
+    "bindings": "~1.2.1",
+    "node-addon-api": "^1.0.0"
+  },
+  "gypfile": true
 }
