@@ -1,21 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore,applyMiddleware,compose} from 'redux';
-import thunk from 'redux-thunk';
-import reducers from "./reducers";
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import {BrowserRouter,Routes, Route} from "react-router-dom";
 
-import{BrowserRouter} from "react-router-dom"; //for multipage
+import Home from "./Home";
+import LearnSS from "./LearnSS";
 
-import App from './App';
-import  './index.css';
-const store = createStore(reducers,compose(applyMiddleware(thunk)))
+// import setManagement from "./setManagement";
+import App from "./App";
 
-    ReactDOM.render(
-        <Provider store = {store}>
-            <App />
-        </Provider>,
-        document.getElementById('root')
-    );
+import LectureInterface from "./lectureInterface";
+import SetInterface from "./setInterface";
 
-// export default store; //multipage?
+function getId() {
+    return undefined;
+}
+
+ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                {/*<Route path="/" element={<App/>}>*/}
+                {/*</Route>*/}
+                <Route path="/LearnSS" element={<LearnSS/>}>
+                </Route>
+                <Route path="/" element={<Home/>}>
+                </Route>
+                <Route path="/upload_set" element={<App/>}>
+                </Route>
+                {/*<Route path="/upload_lecture" element={<lectureManagement/>}>*/}
+                {/*</Route>*/}
+                {/*<Route path="/create_set" element={<UploadSet/>}>*/}
+                {/*</Route>*/}
+                <Route path="/set_interface" element={<SetInterface/>}>
+                </Route>
+                <Route path="/lecture_interface" element={<LectureInterface/>}>
+                </Route>
+                {/*<Route path="/Profile" element={<Profile/>}>*/}
+                {/*</Route>*/}
+                {/*add any new pages here*/}
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById("root")
+);

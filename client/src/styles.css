@@ -1,0 +1,152 @@
+/*Contain the most general styling for all pages*/
+.nav{
+    width: max-content;
+}
+
+
+.uploadBox{
+    width: fit-content;
+    padding: 3%;
+    display: grid;
+    margin: auto;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(0,50,200,100%);
+    justify-items: center;
+    grid-auto-rows:fit-content(10%);
+    grid-template-columns: repeat(2,1fr);
+}
+.home-columns{
+    /*grid-template-columns: repeat(1,1fr);*/
+    column-count: 2;
+}
+
+.form{
+    width: 300px;
+    height: fit-content;
+    /*background-color: rgb(255,255,255,10%);*/
+    background: lightgrey;
+    border-radius: 5px;
+    margin: 30px;
+    display: block;
+    align-items: center;
+    padding: 6px;
+    /*flexDirection: row;*/
+    justifyContent: center;
+    textDecoration: none;
+}
+/*Navbar is a translation of the Appbar template in styles.js*/
+.navBar{
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    margin: 30px;
+    display: flex;
+    width: inherit;
+    flexDirection: row;
+    justifyContent: center;
+    alignItems: center;
+    textDecoration: none;
+}
+.button-standard {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(255,255,255,90%);
+    /*background-color: navajowhite;*/
+    border-radius: 10px;
+    border-style: hidden;
+    padding-left: 2px;
+    padding-right: 2px;
+    transition: 0.6s;
+}
+
+.form-box {
+    height: fit-content;
+    width: fit-content;
+    /*background-color: rgb(255,255,255,20%);*/
+    /*background-color: navajowhite;*/
+    border-style: hidden;
+    transition: 0.6s;
+}
+.button-standard:hover {
+    background-color: lightslategray;
+}
+
+.lectureI{
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,5%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+}
+
+.keywords{
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,100%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+    border-color: black;
+    border-style: dashed;
+    border-width: thin;
+    padding: 3px;
+    width: fit-content;
+}
+keywords:hover{
+    background-color: lightslategray;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+    animation: ease-out;}
+
+.lectureSummary{
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,20%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+}
+.lectureSummary-content{
+    padding: 6px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,20%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+}
+.classInteraction{
+    overflow: hidden;
+    justify-content: flex-start;
+    align-content:center;
+    box-shadow: 0px 0px 15px -5px;
+    grid-row-start: initial;
+    background-color: rgb(255,255,255,20%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+}
+
+.tile-container{
+    width: 150px;
+    height: 60px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,10%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+
+}
+.tile-container:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+    animation: ease-out;
+}
+
+
+.banner-container{
+    overflow: hidden;
+    width: 100%;
+    background-color:black;
+}
