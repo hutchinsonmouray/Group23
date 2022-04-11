@@ -64,6 +64,7 @@ Napi::Object parseIntoCardsFromAudio(const Napi::CallbackInfo& info)
 
 }
 
+/*
 unordered_map<string,string> parseIntoCardsFromChat(string& input)
 {
     // ================================= //
@@ -149,6 +150,7 @@ void classInteraction(unordered_map<string,string>& words, string& input)
             cout << "Word '" << p.first << "' occurs " << p.second << " times.\n";
 
 }
+*/
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
   exports.Set(Napi::String::New(env, "parser"),
