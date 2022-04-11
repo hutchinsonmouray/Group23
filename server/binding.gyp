@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "hello",
+      "target_name": "parser",
       "cflags!": [ "-fno-exceptions" ],
       "cflags_cc!": [ "-fno-exceptions" ],
       "sources": [ "parser.cc" ],

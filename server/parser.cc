@@ -22,7 +22,6 @@ Napi::Object parseIntoCardsFromAudio(const Napi::CallbackInfo& info)
 
     enum kind { keyword, definition, period, nothing };
     kind state = nothing;
-    unordered_map<string,string> words;
     string word; // word variable to store word
     string keywrd = "";
     string def = "";
@@ -60,7 +59,7 @@ Napi::Object parseIntoCardsFromAudio(const Napi::CallbackInfo& info)
         else if (word == "period" || word == "Period" || word == "period.") state = period;
     }
 
-    return words;
+    return obj;
 
 }
 
@@ -153,7 +152,7 @@ void classInteraction(unordered_map<string,string>& words, string& input)
 */
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
-  exports.Set(Napi::String::New(env, "parser"),
+  exports.Set(Napi::String::New(env, "parseIntoCardsFromAudio"),
               Napi::Function::New(env, parseIntoCardsFromAudio));
   return exports;
 }
