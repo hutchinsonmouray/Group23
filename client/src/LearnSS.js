@@ -39,11 +39,12 @@ const LearnSS = () => {
                     </Grid>
                 </Grid>
             </Grow>
-            <Paper className='lectureSummary'>
-                {/*add a border and make it look nice w/ typ*/}
-                {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 LearnSS</Typography>*/}
-                {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 LearnSS</Typography>*/}
-                {/*<Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS</Typography>*/}
+            <div className='box-with-blue-border'>
+                <Paper className='lectureSummary'>
+                    {/*add a border and make it look nice w/ typ*/}
+                    {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 LearnSS</Typography>*/}
+                    {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 LearnSS</Typography>*/}
+                    {/*<Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS</Typography>*/}
                     <div className='lectureSummary-content'>
                         <Typography className={classes.heading} variant="h5" aligin="center">Purpose</Typography>
                         Purpose
@@ -52,7 +53,8 @@ const LearnSS = () => {
                         <Typography className={classes.heading} variant="h5" aligin="center">FAQs</Typography>
                         FAQs
                     </div>
-            </Paper>
+                </Paper>
+            </div>
         </Container>
     );
 }

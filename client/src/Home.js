@@ -56,34 +56,33 @@ function navbar(props) {
 // trying to get lecture info
 export default function Home() {
     const classes = useStyles();
-
     return (
         <div>
+
             {/*<div className='banner-container'>*/}
-            <div align="right">
-            <NavLink  style={{ textDecoration: 'none' }} to={"/LearnSS"}>
-                    {/*<p>About StudyStream</p>*/}
-                <button className='button-standard'>
-                    <p>About StudyStream</p>
-                </button>
-            </NavLink>
-            <NavLink to={"/upload_set"} style={{ textDecoration: 'none' }} >
-                    {/*<p>Manage Sets & Lectures</p>*/}
-
-                { console.log("localStorage.length")}
-                { console.log(localStorage.length)}
-
-                <button className='button-standard'>
-                    <p>Manage Sets & Lectures</p>
-                </button>
-            </NavLink>
-            </div>
 
             <Container>
+                <div align='right'>
+                    <NavLink  style={{ textDecoration: 'none' }} to={"/LearnSS"}>
+                        {/*<p>About StudyStream</p>*/}
+                        <button className='button-standard'>
+                            <p>About StudyStream</p>
+                        </button>
+                    </NavLink>
+                    <NavLink to={"/upload_set"} style={{ textDecoration: 'none' }} >
+                        {/*<p>Manage Sets & Lectures</p>*/}
+
+                        { console.log("localStorage.length")}
+                        { console.log(localStorage.length)}
+
+                        <button className='button-standard'>
+                            <p>Manage Sets & Lectures</p>
+                        </button>
+                    </NavLink>
+                </div>
             <AppBar className={classes.appBar} position = "static" color ="inherit">
             <Typography  className={classes.heading} variant="h2" align="center">StudyStream</Typography>
             </AppBar>
-
             <Tiles/>
             {/*// Create Cards for lecture tile from ^^ data*/}
             </Container>

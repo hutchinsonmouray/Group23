@@ -20,7 +20,7 @@ function Tiles() {
     let sets = []
 
     //Get the lectures from c++
-    for (let i = 0; i<5; i++) {
+    for (let i = 0; i<25; i++) {
         localStorage.setItem("titleTile","T")
 
         lectures.push(
@@ -35,7 +35,7 @@ function Tiles() {
     }
 
 //Get the sets from
-    for (let i = 5; i<10; i++) {
+    for (let i = 25; i<50; i++) {
         localStorage.setItem("titleTile","G")
 
         sets.push(
@@ -49,15 +49,15 @@ function Tiles() {
     }
 
     return (
-        <Container className='home-columns' position = "relative">
-                <div>
-                    <Typography variant="h4">Sets</Typography>
+        <Container className='home-columns' position = "static">
+                <div className='overflow'>
+                    <Typography className='box-with-blue-border' variant="h4">Sets</Typography>
                     <div className='tilesBox'>
                         {sets}
                     </div>
                 </div>
-               <div>
-                   <Typography variant="h4">Lectures</Typography>
+            <div className='overflow'>
+                   <Typography className='box-with-blue-border' variant="h4">Lectures</Typography>
                    <div className="tilesBox">
                        {lectures}
                    </div>
