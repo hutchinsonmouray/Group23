@@ -1,0 +1,25 @@
+.popup {
+    positon: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+
+    display: flex;
+    justify-content:center;
+    align-itemsitems: center;
+    align-self: center;
+}
+.popup-inner {
+    positon: relative;
+    paddeing: 40px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #FFFFFFFF;
+}
+.popup-inner.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}

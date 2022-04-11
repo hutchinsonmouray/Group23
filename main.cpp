@@ -145,8 +145,6 @@ void classInteraction(unordered_map<string,string>& words, string& input)
 
 }
 
-
-
 int main() {
     unordered_map<string,string> words;
     string input = "    Hello welcome to class\n"
