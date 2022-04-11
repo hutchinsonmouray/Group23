@@ -12,10 +12,9 @@ import App from "./App";
 import LectureInterface from "./lectureInterface";
 import SetInterface from "./setInterface";
 
-import bindings from 'bindings'
-var addon = bindings('parser')
+var addon = require('bindings')('hello');
 
-console.log(addon.parseIntoCardsFromAudio("Also Keyword good definition awesome period"));
+console.log(addon.hello()); // 'world'
 
 function getId() {
     return undefined;
