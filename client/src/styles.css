@@ -3,7 +3,6 @@
     width: max-content;
 }
 
-
 .uploadBox{
     width: fit-content;
     padding: 3%;
@@ -80,24 +79,6 @@
     horiz-align: center;
 }
 
-.keywords{
-    overflow: hidden;
-    box-shadow: 0px 0px 15px -5px;
-    background-color: rgb(255,255,255,100%);
-    transition: 0.6s;
-    align-content: center;
-    horiz-align: center;
-    border-color: black;
-    border-style: dashed;
-    border-width: thin;
-    padding: 3px;
-    width: fit-content;
-}
-keywords:hover{
-    background-color: lightslategray;
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px;
-    animation: ease-out;}
 
 .lectureSummary{
     overflow: hidden;
@@ -115,17 +96,40 @@ keywords:hover{
     align-content: center;
     horiz-align: center;
 }
+
 .classInteraction{
     overflow: hidden;
     justify-content: flex-start;
+    grid: inherit;
     align-content:center;
     box-shadow: 0px 0px 15px -5px;
     grid-row-start: initial;
-    background-color: rgb(255,255,255,20%);
+    /*background-color: rgb(255,255,255,20%);*/
     transition: 0.6s;
     align-content: center;
     horiz-align: center;
 }
+.keywords{
+
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    /*background-color: rgb(255,255,255,100%);*/
+    background-color: transparent;
+    transition: 0.6s;
+    border-radius: 8px;
+    align-content: center;
+    horiz-align: center;
+    border-color: black;
+    border-style: inset;
+    border-width: thin;
+    padding: 3px;
+    width: fit-content;
+}
+.keywords:hover{
+    background-color: lightslategray;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+    animation: ease-out;}
 
 .tile-container{
     width: 150px;
@@ -143,8 +147,6 @@ keywords:hover{
     box-shadow: 0px 0px 15px 0px;
     animation: ease-out;
 }
-
-
 .banner-container{
     overflow: hidden;
     width: 100%;
