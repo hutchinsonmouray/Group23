@@ -30,11 +30,7 @@ function getClassInteraction() {
         )
     }
     return (
-        <Grid container align="center" justifyContent="space-between" color="white" alignItems="stretch" spacing={3} flexDirection="row">
-        <Paper className='classInteraction'>
-        {keywords}
-         </Paper>
-        </Grid>
+            <div className='tilesBox'>{keywords}</div>
     );
 }
 const LectInterface = () => {
@@ -57,13 +53,11 @@ const LectInterface = () => {
                         <p>Export for Quizlet</p>
                     </button>
                 </NavLink>
-                <div align="right">
-                    <NavLink align="right" style={{ textDecoration: 'red' }} to={"/LearnSS"}>
+                    <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
                         <button  className='button-standard' onClick={deleteLecture()}>
                             <p >Delete</p>
                         </button>
                     </NavLink>
-                </div>
             </Grid>
 
             {/*Header Bar*/}
@@ -93,7 +87,7 @@ const LectInterface = () => {
                 </div>
                 Function: getClassInteraction
                 <div className='classInteraction'>
-                    <Container className='tilesBox' position='relative'>
+                    <Container className='box-with-blue-border' position='relative'>
                         {getClassInteraction()}
                     </Container>
                 </div>

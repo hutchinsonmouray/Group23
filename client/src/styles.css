@@ -1,6 +1,8 @@
 /*Contain the most general styling for all pages*/
 .nav{
     width: max-content;
+    align-self: center;
+
 }
 
 .uploadBox{
@@ -8,15 +10,54 @@
     padding: 3%;
     display: grid;
     margin: auto;
+    border-radius: 4px;
     box-shadow: 0px 0px 15px -5px;
-    background-color: rgb(0,50,200,100%);
+    background-color: rgb(0,50,200,60%);
     justify-items: center;
     grid-auto-rows:fit-content(10%);
     grid-template-columns: repeat(2,1fr);
 }
+
+.box-with-blue-border {
+    width: fit-content;
+    height: fit-content;
+    padding: 1%;
+    display: grid;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(0,50,200,60%);
+    justify-items: center;
+}
+.box-with-heading{
+    width: fit-content;
+    padding: 3%;
+    display: grid;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(0,50,200,60%);
+    justify-items: center;
+    grid-auto-rows:fit-content(100%);
+    /*grid-auto-rows:fit-content(10%);*/
+    /*grid-template-columns: repeat(2,1fr);*/
+}
 .home-columns{
     /*grid-template-columns: repeat(1,1fr);*/
     column-count: 2;
+    column-rule: darkblue;
+    overflow: hidden;
+}
+.right{
+    position: absolute;
+    right: 30px;
+    align-content: end;
+    align-self: end;
+    margin-bottom: 1px;
+}
+.overflow{
+    margin: 3px;
+    overflow: hidden;
+    padding: 1px;
 }
 
 .form{
@@ -24,6 +65,7 @@
     height: fit-content;
     /*background-color: rgb(255,255,255,10%);*/
     background: lightgrey;
+    box-shadow: 0px 0px 15px -5px;
     border-radius: 5px;
     margin: 30px;
     display: block;
@@ -38,13 +80,7 @@
     width: 100%;
     background-color: white;
     border-radius: 15px;
-    margin: 30px;
-    display: flex;
-    width: inherit;
-    flexDirection: row;
-    justifyContent: center;
-    alignItems: center;
-    textDecoration: none;
+    margin-bottom: 20px;
 }
 .button-standard {
     width: fit-content;
@@ -56,12 +92,21 @@
     padding-left: 2px;
     padding-right: 2px;
     transition: 0.6s;
+    margin-bottom: 1px;
+
+}
+
+.form-box-text {
+    padding: 6px;
+    box-shadow: 0px 0px 15px -1px;
 }
 
 .form-box {
     height: fit-content;
     width: fit-content;
-    /*background-color: rgb(255,255,255,20%);*/
+    border-radius: 4px;
+    background-color: rgb(255,255,255,80%);
+
     /*background-color: navajowhite;*/
     border-style: hidden;
     transition: 0.6s;
@@ -131,6 +176,7 @@
     box-shadow: 0px 0px 15px 0px;
     animation: ease-out;}
 
+
 .tile-container{
     width: 150px;
     height: 60px;
@@ -150,5 +196,5 @@
 .banner-container{
     overflow: hidden;
     width: 100%;
-    background-color:black;
+    background-color:rgb(255,255,255);
 }
