@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import useStyles from "./styles";
 import lectureI from './styles.css';
-import {AppBar, Container, Grid, Grow, Menu, MenuItem, Paper, Typography} from "@material-ui/core";
+import {AppBar, Container, Grid, GridListTileBar, Grow, Menu, MenuItem, Paper, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
+import {red} from "@material-ui/core/colors";
 
 function deleteLecture() {
     //remove item from cpp stored file??
@@ -42,14 +43,35 @@ const LectInterface = () => {
 
     return (
         <Container maxidth={"lg"}>
+
+            <Grid>
+                <NavLink  style={{ textDecoration: 'none' }} to={"/LearnSS"}>
+                    {/*<p>About StudyStream</p>*/}
+                    <button className='button-standard'>
+                        <p>Download</p>
+                    </button>
+                </NavLink>
+                <NavLink style={{ textDecoration: 'none' }} to={"/LearnSS"}>
+                    {/*<p>About StudyStream</p>*/}
+                    <button className='button-standard'>
+                        <p>Export for Quizlet</p>
+                    </button>
+                </NavLink>
+                <div align="right">
+                    <NavLink align="right" style={{ textDecoration: 'red' }} to={"/LearnSS"}>
+                        <button  className='button-standard' onClick={deleteLecture()}>
+                            <p >Delete</p>
+                        </button>
+                    </NavLink>
+                </div>
+            </Grid>
+
             {/*Header Bar*/}
                 <NavLink  to={"/"} style={{ textDecoration: 'none' }} color='black'>
                 <AppBar className={classes.appBar} position = "static" color ="inherit">
                     <Typography className={classes.heading} variant="h2" aligin="center">StudyStream</Typography>
                 </AppBar>
             </NavLink>
-
-            <button className='button-standard' onClick={deleteLecture()}>delete lecture</button>
 
             {localStorage.getItem("getCurrentID").toString()}
             {/*add a border and make it look nice w/ typ*/}

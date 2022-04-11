@@ -90,7 +90,7 @@ render() {
         <Container container justify="center" maxidth={"lg"} align="center">
                 <NavLink  to={"/"} style={{ textDecoration: 'none' }} color='black'>
                     <AppBar align="center" justify="center" position='static' className='navBar'color ="inherit">
-                        <Typography align='center' variant="h2" aligin="center">StudyStream</Typography>
+                        <Typography color="initial" align='center' variant="h2">StudyStream</Typography>
                     </AppBar>
                 </NavLink>
 

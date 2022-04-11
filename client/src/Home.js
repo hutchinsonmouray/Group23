@@ -60,7 +60,7 @@ export default function Home() {
     return (
         <div>
             {/*<div className='banner-container'>*/}
-            <div>
+            <div align="right">
             <NavLink  style={{ textDecoration: 'none' }} to={"/LearnSS"}>
                     {/*<p>About StudyStream</p>*/}
                 <button className='button-standard'>
