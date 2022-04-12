@@ -4,8 +4,7 @@
   "description": "Server side of StudyStream",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node-gyp rebuild"
+    "start": "nodemon server.js"
   },
   "author": "Group 23",
   "license": "ISC",
