@@ -12,10 +12,6 @@ import App from "./App";
 import LectureInterface from "./lectureInterface";
 import SetInterface from "./setInterface";
 
-var addon = require('bindings')('hello');
-
-console.log(addon.hello()); // 'world'
-
 function getId() {
     return undefined;
 }
