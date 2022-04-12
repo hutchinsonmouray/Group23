@@ -4,6 +4,7 @@ import lectureI from './styles.css';
 import {AppBar, Container, Grid, GridListTileBar, Grow, Menu, MenuItem, Paper, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 import {red} from "@material-ui/core/colors";
+import {FaFilePdf} from "react-icons/fa";
 
 function deleteLecture() {
     //remove item from cpp stored file??
@@ -15,7 +16,7 @@ function getLectSummary() {
 // gets the lect summary info from the db
 //     <div className='tile-container'>
 
-    return (<div className='lectureSummary'>This is the Lecture Summary (Angelina) </div>
+    return (<div className='lectureSummary'>This is the Lecture Summary </div>
     );
 }
 function getClassInteraction() {
@@ -30,7 +31,7 @@ function getClassInteraction() {
         )
     }
     return (
-            <div className='tilesBox'>{keywords}</div>
+            <div className='keywords-box'>{keywords}</div>
     );
 }
 const LectInterface = () => {
@@ -44,13 +45,10 @@ const LectInterface = () => {
                 <NavLink  style={{ textDecoration: 'none' }} to={"/LearnSS"}>
                     {/*<p>About StudyStream</p>*/}
                     <button className='button-standard'>
-                        <p>Download</p>
-                    </button>
-                </NavLink>
-                <NavLink style={{ textDecoration: 'none' }} to={"/LearnSS"}>
-                    {/*<p>About StudyStream</p>*/}
-                    <button className='button-standard'>
-                        <p>Export for Quizlet</p>
+                      <div className='make-grid'>  <p>Download PDF</p>
+                          {/*<FaFilePdf></FaFilePdf>*/}
+                      </div>
+
                     </button>
                 </NavLink>
                     <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
@@ -80,18 +78,20 @@ const LectInterface = () => {
                 </Grid>
             </Grow>
             <div className='lectureI'>
-            This is the Lecture Interface: Use Wrapper Functions to get what is in the lecture
-                Function: getLectSummary
-                <div className='lectureSummary'>
+                <Typography className='box-with-blue-border' variant="h6">Lecture Name</Typography>
+                    <Paper background-color='black'>
                     {getLectSummary()}
-                </div>
-                Function: getClassInteraction
+                </Paper>
+                {/*Function: getClassInteraction*/}
+
                 <div className='classInteraction'>
                     <Container className='box-with-blue-border' position='relative'>
                         {getClassInteraction()}
                     </Container>
                 </div>
-
+                <div align='right'>
+                    <Typography className='button-standard'>This set was created by INSERT CREATOR</Typography>
+                </div>
             </div>
         </Container>
     );
