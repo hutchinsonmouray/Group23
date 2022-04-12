@@ -19,8 +19,8 @@
 }
 
 .box-with-blue-border {
-    /*width: fit-content;*/
-    /*height: fit-content;*/
+    width: fit-content;
+    height: fit-content;
     padding: 1%;
     display: grid;
     border-radius: 4px;
