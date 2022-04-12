@@ -6,15 +6,8 @@ import "./tile.css";
 import { ToggleCard, TinderLikeCard, StackCard } from 'react-stack-cards'
 import zIndex from "@material-ui/core/styles/zIndex";
 import {
-    FaAngleDoubleLeft,
-    FaAngleDoubleRight,
-    FaArrowAltCircleLeft,
-    FaArrowAltCircleRight, FaCross,
-    FaDice, FaFileCsv, FaFileDownload, FaFileExcel, FaFileExport, FaFilePdf,
-    FaFilter,
-    FaMix, FaQuestion, FaRandom, FaRegFileExcel, FaReply,
-    FaShapes,
-    FaStar,
+    FaAngleDoubleLeft, FaAngleDoubleRight, FaArrowAltCircleLeft, FaArrowAltCircleRight, FaCross,
+    FaDice, FaFileCsv, FaFileDownload, FaFileExcel, FaFileExport, FaFilePdf, FaFilter, FaMix, FaQuestion, FaRandom, FaRegFileExcel, FaReply, FaShapes, FaStar,
 } from "react-icons/fa";
 
 class Titles extends React.Component {
