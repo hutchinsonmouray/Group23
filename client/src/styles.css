@@ -19,8 +19,8 @@
 }
 
 .box-with-blue-border {
-    width: fit-content;
-    height: fit-content;
+    /*width: fit-content;*/
+    /*height: fit-content;*/
     padding: 1%;
     display: grid;
     border-radius: 4px;
@@ -96,6 +96,10 @@
 
 }
 
+.button-standard:checked {
+    background-color: rgb(0,200,30,60%);
+}
+
 .form-box-text {
     padding: 6px;
     box-shadow: 0px 0px 15px -1px;
@@ -118,19 +122,43 @@
 .lectureI{
     overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
-    background-color: rgb(255,255,255,5%);
     transition: 0.6s;
     align-content: center;
     horiz-align: center;
+    position: relative;
+    height: 40%;
+    overflow: hidden;
+    padding: 20px;
+    border: darkblue;
+    background-color: rgb(255,255,255,10%);
+    border-style: inset;
+    justify-content: center;
 }
+
+/*tiles box w/out color*/
+.keywords-box{
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    margin: auto;
+    align-self: center;
+    align-content: center;
+    /*box-shadow: 0px 0px 15px -5px;*/
+    gap: 6px;
+    overflow: hidden;
+    padding: 6px;}
 
 
 .lectureSummary{
     overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
-    background-color: rgb(255,255,255,20%);
+    /*background-color: rgb(255,255,255,100%);*/
+    /*background-color: navajowhite;*/
+    /*background-color: moccasin;*/
     transition: 0.6s;
     align-content: center;
+    border-radius: 4px;
+    padding: 6px;
     horiz-align: center;
 }
 .lectureSummary-content{
@@ -171,12 +199,17 @@
     width: fit-content;
 }
 .keywords:hover{
-    background-color: lightslategray;
+    background-color: lightblue;
     transform: scale(1.1);
     box-shadow: 0px 0px 15px 0px;
     animation: ease-out;}
 
+.make-grid{
+    display: grid;
+    vertical-align: central;
+    /*grid-template-columns: repeat(auto-fill, 200px);*/
 
+}
 .tile-container{
     width: 150px;
     height: 60px;

@@ -76,6 +76,10 @@ function setPostData(type, param) {
     return null;
 }
 
+//Calls both functions
+function uploadLecture1() {
+    return uploadLecture();
+}
 
 class App extends React.Component {
     setSetData(param) {
@@ -143,6 +147,14 @@ render() {
                         <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData("file",{selectedFile: base64 })} />
                         <Button variant="contained" color="default" size="large" type="submit" fullWidth>Upload Lecture</Button>
                     </form>
+                <form autoComplete="off" noValidate onSubmit={uploadLecture1()}className='form'>
+                    <Typography color = "textPrimary" variant="h6">{'Merge two Existing Sets'}</Typography>
+                    <TextField name="message" variant="outlined" label="Title" fullWidth onChange={(e) =>  setPostData("title",e.target.value)} />
+                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData("file",{selectedFile: base64 })} />
+                    <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData("file1",{selectedFile: base64 })} />
+                    <Button variant="contained" color="default" size="large" type="submit" fullWidth>Upload Lecture</Button>
+                </form>
+
                     <form autoComplete="off" noValidate onSubmit={saveSet()} className='form'>
                         <Typography variant="h6">{'Create a Set'}</Typography>
                         <TextField name="creator" variant="outlined" label="Creator" fullWidth onChange={(e) => setPostData("creator",e.target.value)} />
@@ -150,6 +162,7 @@ render() {
                         <TextField name="message" variant="outlined" label="Paste Lecture Here" fullWidth onChange={(e) =>  setPostData("text",e.target.value)} />
                         <Button variant="contained" color="default" size="large" type="submit" fullWidth>Create a Set</Button>
                     </form>
+
                     <form autoComplete="off" noValidate onSubmit={uploadSet()} className='form'>
                         <Typography variant="h6">{'Upload a Set'}</Typography>
                         <TextField name="message" variant="outlined" label="Title" fullWidth onChange={(e) =>  setPostData("title",e.target.value)} />
