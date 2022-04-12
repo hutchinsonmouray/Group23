@@ -6,8 +6,26 @@ import "./tile.css";
 import { ToggleCard, TinderLikeCard, StackCard } from 'react-stack-cards'
 import zIndex from "@material-ui/core/styles/zIndex";
 import {
-    FaAngleDoubleLeft, FaAngleDoubleRight, FaArrowAltCircleLeft, FaArrowAltCircleRight, FaCross,
-    FaDice, FaFileCsv, FaFileDownload, FaFileExcel, FaFileExport, FaFilePdf, FaFilter, FaMix, FaQuestion, FaRandom, FaRegFileExcel, FaReply, FaShapes, FaStar,
+    FaAngleDoubleLeft,
+    FaAngleDoubleRight,
+    FaArrowAltCircleLeft,
+    FaArrowAltCircleRight,
+    FaCross,
+    FaDice, FaDiceD20,
+    FaDiceFour,
+    FaFileCsv,
+    FaFileDownload,
+    FaFileExcel,
+    FaFileExport,
+    FaFilePdf,
+    FaFilter,
+    FaMix,
+    FaQuestion,
+    FaRandom,
+    FaRegFileExcel,
+    FaReply,
+    FaShapes,
+    FaStar,
 } from "react-icons/fa";
 
 class Titles extends React.Component {
@@ -37,19 +55,19 @@ class Titles extends React.Component {
         const numbers = [0, 1, 2, 3]
         return (
             <div>
-                {/*<ToggleCard*/}
-                {/*    images={arr}*/}
-                {/*    width="350"*/}
-                {/*    height="240"*/}
-                {/*    direction={this.state.directionToggle}*/}
-                {/*    direction='right'*/}
-                {/*    duration={400}*/}
-                {/*    className="toggle"*/}
-                {/*    isOpen={this.state.isOpen}*/}
-                {/*    onClick={()=> alert("Hello")}>*/}
-                {/*    { numbers.map( i => <div>{i}</div> )}*/}
-                {/*</ToggleCard>*/}
-                {/*<button onClick={this.onToggle.bind(this)}>Toggle</button>*/}
+                <ToggleCard
+                    images={arr}
+                    width="350"
+                    height="240"
+                    direction={this.state.directionToggle}
+                    direction='right'
+                    duration={400}
+                    className="toggle"
+                    isOpen={this.state.isOpen}
+                    onClick={()=> alert("Hello")}>
+                    { numbers.map( i => <div>{i}</div> )}
+                </ToggleCard>
+                <button onClick={this.onToggle.bind(this)}>Toggle</button>
 
                 <TinderLikeCard
                     images={arr}
@@ -64,17 +82,17 @@ class Titles extends React.Component {
                 </TinderLikeCard>
                 <button onClick={this.onTinderSwipe.bind(this)}>Swipe</button>
 
-                {/*<StackCard*/}
-                {/*    images={arr}*/}
-                {/*    color={"#f95c5c"}*/}
-                {/*    width="350"*/}
-                {/*    height="240"*/}
-                {/*    direction={this.state.directionStack}*/}
-                {/*    // onClick={()=> alert("Hello")}*/}
+                <StackCard
+                    color={"#f95c5c"}
+                    width="350"
+                    height="240"
 
-                {/*    onClick={()=> <Tile/>}>*/}
-                {/*    <div>i</div>*/}
-                {/*</StackCard>*/}
+                    direction={this.state.directionStack}
+                    // onClick={()=> alert("Hello")}
+                    // onMouseEnter={()=> <Tile/>}>
+                     onClick={()=> <Tile/>}>
+                    <div>i</div>
+                </StackCard>
             </div>
         );
     }
@@ -88,10 +106,7 @@ let cards = []
 
 localStorage.setItem("titleTile","T")
 
-
 let filterClicked = false;
-
-
 
 const CardSlider = () => {
     const [current, setCurrent] = useState(0)
@@ -132,25 +147,34 @@ const CardSlider = () => {
         // Got random value formula from: https://css-tricks.com/generate-a-random-number/#:~:text=Generating%20a%20random%20number%20with%20JavaScript%20is%20pretty,That%20will%20return%20a%20random%20number%20between%201-100.?msclkid=9a03202eba3d11eca1b013cb817fc2f0
         randVal = Math.floor(Math.random() * 101) % cards.length;
 
+
         setCurrent(current === randVal ? randomCard() : randVal)
         console.log(randVal);
         return randVal;
     };
-
+    // let e = Window.event;
+    // if (e.key()===40) {
+    //     nextCard();
+    // }
     return (
         <Container align="center">
-            <div className='slider'>
+            {current}
+            {/*<Titles/>*/}
+            {/*className='slider'*/}
+    <div>
                 {cards.map((card,index)=>{ return (
-                <div className='card-container'>
-
+                    <div>
+                <div>
                     {
                         index === current && (cards.at(index))
                     }
                     {/*{index}*/}
                 </div>
+                    </div>
             );
             })}
                 </div>
+
             <div className='set-tool-bar'>
                 {/*<FaFileDownload></FaFileDownload>*/}
                 {/*<FaFileExport></FaFileExport>*/}
@@ -158,15 +182,17 @@ const CardSlider = () => {
                 {/*<FaFileExcel></FaFileExcel>*/}
                 {/*<FaFilePdf></FaFilePdf>*/}
                 {/*<FaReply></FaReply>*/}
-            <FaStar  size={30} className='tool-button' color = "yellow"></FaStar>
+
+                <FaFileDownload  size={30} className='tool-button' color="green"></FaFileDownload>
+                <FaStar  size={30} className='tool-button' color = "yellow"></FaStar>
             <FaFilter  size={30} className='tool-button'  onClick = {()=>{filterClicked=!filterClicked}} color = {(filterClicked===true) ? "yellow" : "black"}> </FaFilter>
-            <FaFileCsv  size={30} className='tool-button' color="green"></FaFileCsv>
-            <FaQuestion  size={30} className='tool-button' color = "purple" onClick={()=>{setCurrent(randomCard())}} ></FaQuestion>
-            <FaAngleDoubleLeft  size={30} className='tool-button' onClick={()=>{setCurrent(0)}} ></FaAngleDoubleLeft>
+                <FaDice  size={30} className='tool-button' color = "indigo" onClick={()=>{setCurrent(randomCard())}} ></FaDice>
+                <FaAngleDoubleLeft  size={30} className='tool-button' onClick={()=>{setCurrent(0)}} ></FaAngleDoubleLeft>
             <FaAngleDoubleRight size={30} className='tool-button'  onClick={()=>{setCurrent(cards.length-1)}} ></FaAngleDoubleRight>
-            <FaArrowAltCircleLeft  size={30} className='tool-button'  onClick={prevCard}></FaArrowAltCircleLeft>
+                <FaArrowAltCircleLeft  size={30} className='tool-button'  onClick={prevCard}></FaArrowAltCircleLeft>
             <FaArrowAltCircleRight size={30} className='tool-button'  onClick={nextCard}></FaArrowAltCircleRight>
                 <FaRandom size={30} className='tool-button' onClick={()=>{shuffleCards()}} color="orange"></FaRandom>
+                <FaQuestion  size={30} className='tool-button' color = "purple" onClick={()=>{alert("File: Download this Set for use in StudyStream! \n" + "Star: Star a Selected Card \n" + "Filter: Only show started Cards\n" + "Dice: Jump to random card \n" + ">>: Jump to first card \n" + "<<: Jump to last card \n" + "->: Next card\n"+ "<-: Previous card\n"+ "Cross-arrow: Shuffle cards\n")}}></FaQuestion>
             </div>
         </Container>
     );

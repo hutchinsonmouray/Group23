@@ -38,19 +38,20 @@ const LectInterface = () => {
     const  classes = useStyles();
     localStorage.getItem("getCurrentID").toString();
 
+    function downloadLectureasPDF() {
+        return undefined;
+    }
+
     return (
         <Container maxidth={"lg"}>
 
             <Grid>
-                <NavLink  style={{ textDecoration: 'none' }} to={"/LearnSS"}>
                     {/*<p>About StudyStream</p>*/}
-                    <button className='button-standard'>
+                    <button className='button-standard' onClick={downloadLectureasPDF()}>
                       <div className='make-grid'>  <p>Download PDF</p>
                           {/*<FaFilePdf></FaFilePdf>*/}
                       </div>
-
                     </button>
-                </NavLink>
                     <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
                         <button  className='button-standard' onClick={deleteLecture()}>
                             <p >Delete</p>
