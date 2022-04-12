@@ -3,6 +3,7 @@ import './tile.css';
 import {Link, NavLink} from "react-router-dom";
 import {Typography} from "@material-ui/core";
 import ReactCardFlip from 'react-card-flip';
+import {StackCard} from "react-stack-cards";
 //get tile info from db
 let tileid = 100;
 let title;
@@ -25,7 +26,16 @@ class card extends React.Component {
 
     render() {
         return (
-            <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+
+            <div className="box-with-blue-border">
+            <StackCard
+                color={"#D3D3D3"}
+                // color={"white"}
+                width="416"
+                height="250"
+                direction={this.state.directionStack}               >
+
+            <ReactCardFlip className='card-container' isFlipped={this.state.isFlipped} flipDirection="vertical">
                 <div onClick={this.handleClick} className='card'>
                 front
                 </div>
@@ -33,7 +43,10 @@ class card extends React.Component {
                     back
                 </div>
             </ReactCardFlip>
-        )
+    </StackCard>
+            </div>
+
+    )
     }
 }
 function frontText() {

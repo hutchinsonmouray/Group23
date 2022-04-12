@@ -46,30 +46,15 @@ const SetInterface = () => {
             {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
             {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>*/}
             {/*<Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>*/}
-
-            <Grow in>
-                <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={7}>
-                    </Grid>
-                </Grid>
-            </Grow>
             <Typography className='box-with-blue-border' variant="h6">Set Name</Typography>
+            {/*<div className="lectureI">*/}
             <Container className='box-with-blue-border'>
                 <Tiles></Tiles>
-                {/*<Tile></Tile>*/}
-                {/*<div className="set-tool-bar">*/}
-                {/*    <button  className='tool-button' onClick={deleteSet()}> Left </button>*/}
-                {/*    <button  className='tool-button1' onClick={deleteSet()}> Right </button>*/}
-                {/*    <button  className='tool-button2' onClick={deleteSet()}> Star </button>*/}
-                {/*    <button  className='tool-button3' onClick={deleteSet()}> Shuffle </button>*/}
-                {/*    <Checkbox/>  <Typography variant="h6">Only view starred cards</Typography>*/}
-
-                {/*</div>*/}
-
             </Container>
             <div align='right'>
                 <Typography className='button-standard'>This set was created by INSERT CREATOR</Typography>
             </div>
+        {/*</div>*/}
         </Container>
     );
 }
