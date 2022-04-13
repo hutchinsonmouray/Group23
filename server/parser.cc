@@ -63,9 +63,14 @@ Napi::Object parseIntoCardsFromAudio(const Napi::CallbackInfo& info)
 
 }
 
-/*
-unordered_map<string,string> parseIntoCardsFromChat(string& input)
+
+Napi::Object parseIntoCardsFromChat(const Napi::CallbackInfo& info)
 {
+    Napi::Env env = info.Env();
+
+    string input = info[0].ToString().Utf8Value();
+
+    Napi::Object obj = Napi::Object::New(env);
     // ================================= //
     // =========== VARIABLES =========== //
     // ================================= //
@@ -98,7 +103,7 @@ unordered_map<string,string> parseIntoCardsFromChat(string& input)
             if(keywrd != "")
             {
                 //store into map
-                words.insert(pair<string,string>(keywrd,def));
+                obj.Set(Napi::String::New(env, keywrd), Napi::String::New(env, def));
             }
             //reset vars
             state = nothing;
@@ -109,12 +114,13 @@ unordered_map<string,string> parseIntoCardsFromChat(string& input)
         else if (word == "Definition" || word == "definition") state = definition;
         else if (word == ".") state = period;
     }
-    if (words.size() != 0) cout << "Flash cards created from student chat! " << endl << endl;
+    
 
-    return words;
+    return obj;
 
 }
 
+/*
 void createCSV(unordered_map<string,string>& words)
 {
     ofstream myfile;
@@ -154,6 +160,8 @@ void classInteraction(unordered_map<string,string>& words, string& input)
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
   exports.Set(Napi::String::New(env, "parseIntoCardsFromAudio"),
               Napi::Function::New(env, parseIntoCardsFromAudio));
+  exports.Set(Napi::String::New(env, "parseIntoCardsFromChat"),
+              Napi::Function::New(env, parseIntoCardsFromChat));
   return exports;
 }
 
