@@ -4,13 +4,17 @@
   "description": "Server side of StudyStream",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Group 23",
   "license": "ISC",
   "gypfile": true,
   "dependencies": {
     "bindings": "^1.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongodb": "^4.5.0",
     "node-addon-api": "^4.3.0",
     "node-gyp": "^9.0.0",
     "nodemon": "^2.0.15"
