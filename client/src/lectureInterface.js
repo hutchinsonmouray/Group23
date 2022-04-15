@@ -48,12 +48,12 @@ const LectInterface = () => {
             <Grid>
                     {/*<p>About StudyStream</p>*/}
                     <button className='button-standard' onClick={downloadLectureasPDF()}>
-                      <div className='make-grid'>  <p>Download PDF</p>
+                        <div className='make-grid'>  <p>Download PDF</p>
                           {/*<FaFilePdf></FaFilePdf>*/}
                       </div>
                     </button>
                     <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
-                        <button  className='button-standard' onClick={deleteLecture()}>
+                        <button  className='button-standard' onClick={deleteLecture()} >
                             <p >Delete</p>
                         </button>
                     </NavLink>

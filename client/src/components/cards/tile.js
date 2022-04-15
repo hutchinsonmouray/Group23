@@ -4,6 +4,7 @@ import {Link, NavLink} from "react-router-dom";
 import {Typography} from "@material-ui/core";
 import ReactCardFlip from 'react-card-flip';
 import {StackCard} from "react-stack-cards";
+import {FaStar} from "react-icons/fa";
 //get tile info from db
 let tileid = 100;
 let title;
@@ -38,9 +39,14 @@ class card extends React.Component {
             <ReactCardFlip className='card-container' isFlipped={this.state.isFlipped} flipDirection="vertical">
                 <div onClick={this.handleClick} className='card'>
                 front
+                    {/*<div align='right-corner'><FaStar  size={30} className='tool-button' color = "yellow"></FaStar></div>*/}
+
+
                 </div>
                 <div onClick={this.handleClick} className='card'>
                     back
+                    {/*<div align='right'><FaStar  size={30} className='tool-button' color = "yellow"></FaStar></div>*/}
+
                 </div>
             </ReactCardFlip>
     </StackCard>
