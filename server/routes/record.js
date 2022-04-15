@@ -11,6 +11,9 @@ const dbo = require("../db/conn");
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
 
+/*
+***Boilerplate code for MongoDB***
+*/
 
 // This section will help you get a list of all the records.
 recordRoutes.route("/record").get(function (req, res) {
@@ -73,5 +76,6 @@ recordRoutes.route("/:id").delete((req, response) => {
     response.json(obj);
   });
 });
+
 
 module.exports = recordRoutes;
