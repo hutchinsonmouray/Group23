@@ -5,6 +5,7 @@
 #include <unordered_set>
 #include <sstream>
 #include <fstream>
+#include "lecture.h"
 using namespace std;
 
 
@@ -146,7 +147,7 @@ void classInteraction(unordered_map<string,string>& words, string& input)
 }
 
 int main() {
-    unordered_map<string,string> words;
+     unordered_map<string,string> words;
     string input = "    Hello welcome to class\n"
                    "    Today we will be going over algorithms\n"
                    "    Keyword time complexity definition is the computational complexity that describes the amount of computer time it takes to run an algorithm period\n"
@@ -168,13 +169,13 @@ int main() {
                     "user avatar\n"
                     "Unknown Speaker\n"
                     "07:13\n"
-                    "Oh.\n"
+                    "keyword input and output devices definition anything people use to input information to the computer or to take information out period \n"
                     "user avatar\n"
                     "Dr. Sanethia Thomas (she/her)\n"
                     "11:10\n"
                     "All right, those that are on.\n"
                     "11:13\n"
-                    "Those that are on zoom can you hear me.\n"
+                    "keyword software testing definition the process of evaluating and verifying that a software product or application does what it is supposed to do period. \n"
                     "11:18\n"
                     "Can the zoom participants hear me yes okay perfect Thank you.\n"
                     "11:21\n"
@@ -208,13 +209,21 @@ int main() {
                     "keyword hello definition no period\n";
 
 
+    LectureSet obj;
+
+    obj.setLectureName("Technical Debt");
+    obj.setCreator("Sanethia Thomas");
+    obj.setTranscript(input3);
+
     words = parseIntoCardsFromAudio(input3);
 
     createCSV(words);
 
     classInteraction(words,input3);
 
-
+    cout << endl;
+    obj.MakeCompleteSet(); // make complete lecture set
+    cout << obj.GetCompleteSet() << endl; // get complete lecture set in one string
 
     return 0;
 }
