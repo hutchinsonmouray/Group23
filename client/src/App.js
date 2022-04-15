@@ -89,6 +89,22 @@ class App extends React.Component {
         localStorage.setItem('myData',selectedFile);
     };
 
+    constructor(props) {
+        super(props);
+        this.state = { apiResponse: "" };
+    }
+    
+    callAPI() {
+        fetch("/hello")
+            .then(res => res.text())
+            .then(data => this.setState({ apiResponse: data }));
+    }
+    
+    componentWillMount() {
+        this.callAPI();
+    }
+    
+
 render() {
     return (
         <Container container justify="center" maxidth={"lg"} align="center">
@@ -122,6 +138,7 @@ render() {
             Want to upload a downloaded set? use "Upload a Set"  <br/>
             Want to create a Set from scratch? use "Create a Set"<br/>
                 </div>
+            <p className="App-intro">{this.state.apiResponse}</p>
             </Typography>
 
             <Grid className='uploadBox'>
