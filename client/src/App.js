@@ -83,7 +83,23 @@ class App extends React.Component {
     }
     setSetData(selectedFile) {
         localStorage.setItem('myData',selectedFile);
-    };
+    }
+
+    constructor(props){
+        super(props);
+        this.state = {apiResponse : "prerecorded message"};
+    }
+
+    callAPI(){
+        fetch('/hello')
+            .then(response => response.text())
+            .then(data => this.setState({apiResponse : data}))
+    }
+
+    componentDidMount(){
+        this.callAPI();
+    }
+
 
 render() {
     return (
@@ -115,6 +131,7 @@ render() {
                     <Typography variant="h4" color='inherit' align='center'>User Guide</Typography>
             Want to Create a lecture from scratch? use "Create a Lecture"<br/>
             Want to upload a downloaded lecture? use "Upload a Lecture" <br/>
+            <p className="App-intro">{this.state.apiResponse}</p>
             Want to upload a downloaded set? use "Upload a Set"  <br/>
             Want to create a Set from scratch? use "Create a Set"<br/>
                 </div>
