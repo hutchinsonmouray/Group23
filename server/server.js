@@ -13,6 +13,10 @@ const dbo = require("./db/conn");
 app.get('/hello', function (req, res) {
   res.send('hello');
 });
+
+app.get('/make-cards', function (req, res) {
+  res.send(addon.parseIntoCardsFromAudio(req.body.lecture));
+})
  
 app.listen(port, () => {
   // perform a database connection when server starts
