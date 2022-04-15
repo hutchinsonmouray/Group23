@@ -48,7 +48,7 @@ const LectInterface = () => {
             <Grid>
                     {/*<p>About StudyStream</p>*/}
                     <button className='button-standard' onClick={downloadLectureasPDF()}>
-                        <div className='make-grid'>  <p>Download PDF</p>
+                      <div className='make-grid'>  <p>Download PDF</p>
                           {/*<FaFilePdf></FaFilePdf>*/}
                       </div>
                     </button>

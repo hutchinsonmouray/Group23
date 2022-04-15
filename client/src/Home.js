@@ -29,7 +29,7 @@ function getLecturesFin() {
 function setLectures() {
     localStorage.setItem('myData','my Value Name')
     console.log('my Value Name')
-   let data = localStorage.getItem('myData')
+    let data = localStorage.getItem('myData')
     return [<MenuItem>{data}</MenuItem>, <MenuItem>{data}</MenuItem>];
 }
 function getLectures() {

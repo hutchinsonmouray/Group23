@@ -4,7 +4,6 @@ import {Link, NavLink} from "react-router-dom";
 import {Typography} from "@material-ui/core";
 import ReactCardFlip from 'react-card-flip';
 import {StackCard} from "react-stack-cards";
-import {FaStar} from "react-icons/fa";
 //get tile info from db
 let tileid = 100;
 let title;

@@ -9,11 +9,11 @@ jobs:
       - run:
           name: Install npm dependencies
           command: |
-            npm install
+            cd server && npm install
       - run:
           name: Run Unit Tests
           command: |
-            echo 'Hello World'
+            cd server && npm test
 
 workflows:
   testing_workflow:
