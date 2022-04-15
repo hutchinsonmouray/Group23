@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Run Unit Tests
           command: |
-            echo 'Hello World'
+            cd server && npm test
 
 workflows:
   testing_workflow:
