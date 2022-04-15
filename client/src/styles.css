@@ -1,0 +1,234 @@
+/*Contain the most general styling for all pages*/
+.nav{
+    width: max-content;
+    align-self: center;
+
+}
+
+.uploadBox{
+    width: fit-content;
+    padding: 3%;
+    display: grid;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(0,50,200,60%);
+    justify-items: center;
+    grid-auto-rows:fit-content(10%);
+    grid-template-columns: repeat(2,1fr);
+}
+
+.box-with-blue-border {
+    width: fit-content;
+    height: fit-content;
+    padding: 1%;
+    display: grid;
+    max-resolution: 1%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(0,50,200,60%);
+    justify-items: center;
+}
+.box-with-heading{
+    width: fit-content;
+    padding: 3%;
+    display: grid;
+    margin: auto;
+    border-radius: 4px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(0,50,200,60%);
+    justify-items: center;
+    grid-auto-rows:fit-content(100%);
+    /*grid-auto-rows:fit-content(10%);*/
+    /*grid-template-columns: repeat(2,1fr);*/
+}
+.home-columns{
+    /*grid-template-columns: repeat(1,1fr);*/
+    column-count: 2;
+    column-rule: darkblue;
+    overflow: hidden;
+}
+.right{
+    position: absolute;
+    right: 30px;
+    align-content: end;
+    align-self: end;
+    margin-bottom: 1px;
+}
+.overflow{
+    margin: 3px;
+    overflow: hidden;
+    padding: 1px;
+}
+
+.form{
+    width: 300px;
+    height: fit-content;
+    /*background-color: rgb(255,255,255,10%);*/
+    background: lightgrey;
+    box-shadow: 0px 0px 15px -5px;
+    border-radius: 5px;
+    margin: 30px;
+    display: block;
+    align-items: center;
+    padding: 6px;
+    /*flexDirection: row;*/
+    justifyContent: center;
+    textDecoration: none;
+}
+/*Navbar is a translation of the Appbar template in styles.js*/
+.navBar{
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+.button-standard {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(255,255,255,90%);
+    /*background-color: navajowhite;*/
+    border-radius: 10px;
+    border-style: hidden;
+    padding-left: 2px;
+    padding-right: 2px;
+    transition: 0.6s;
+    margin-bottom: 1px;
+
+}
+
+.button-standard:checked {
+    background-color: rgb(0,200,30,60%);
+}
+
+.form-box-text {
+    padding: 6px;
+    box-shadow: 0px 0px 15px -1px;
+}
+
+.form-box {
+    height: fit-content;
+    width: fit-content;
+    border-radius: 4px;
+    background-color: rgb(255,255,255,80%);
+
+    /*background-color: navajowhite;*/
+    border-style: hidden;
+    transition: 0.6s;
+}
+.button-standard:hover {
+    background-color: lightslategray;
+}
+
+.lectureI{
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+    position: relative;
+    height: 40%;
+    overflow: hidden;
+    padding: 20px;
+    border: darkblue;
+    background-color: rgb(255,255,255,10%);
+    border-style: inset;
+    justify-content: center;
+}
+
+/*tiles box w/out color*/
+.keywords-box{
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    margin: auto;
+    align-self: center;
+    align-content: center;
+    /*box-shadow: 0px 0px 15px -5px;*/
+    gap: 6px;
+    overflow: hidden;
+    padding: 6px;}
+
+
+.lectureSummary{
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    /*background-color: rgb(255,255,255,100%);*/
+    /*background-color: navajowhite;*/
+    /*background-color: moccasin;*/
+    transition: 0.6s;
+    align-content: center;
+    border-radius: 4px;
+    padding: 6px;
+    horiz-align: center;
+}
+.lectureSummary-content{
+    padding: 6px;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,20%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+}
+
+.classInteraction{
+    overflow: hidden;
+    justify-content: flex-start;
+    grid: inherit;
+    align-content:center;
+    box-shadow: 0px 0px 15px -5px;
+    grid-row-start: initial;
+    /*background-color: rgb(255,255,255,20%);*/
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+}
+.keywords{
+
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    /*background-color: rgb(255,255,255,100%);*/
+    background-color: transparent;
+    transition: 0.6s;
+    border-radius: 8px;
+    align-content: center;
+    horiz-align: center;
+    border-color: black;
+    border-style: inset;
+    border-width: thin;
+    padding: 3px;
+    width: fit-content;
+}
+.keywords:hover{
+    background-color: lightblue;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+    animation: ease-out;}
+
+.make-grid{
+    display: grid;
+    vertical-align: central;
+    /*grid-template-columns: repeat(auto-fill, 200px);*/
+
+}
+.tile-container{
+    width: 150px;
+    height: 60px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    background-color: rgb(255,255,255,10%);
+    transition: 0.6s;
+    align-content: center;
+    horiz-align: center;
+
+}
+.tile-container:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px;
+    animation: ease-out;
+}
+.banner-container{
+    overflow: hidden;
+    width: 100%;
+    background-color:rgb(255,255,255);
+}
