@@ -28,7 +28,7 @@ const SetInterface = () => {
                     </button>
                 </NavLink>
                 <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
-                    <button  className='button-standard' onClick={deleteSet()}>
+                    <button  className='button-standard' onClick={()=>{alert("your set has been deleted")}}>
                         <p >Delete</p>
                     </button>
                 </NavLink>

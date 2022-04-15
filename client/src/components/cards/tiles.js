@@ -159,6 +159,7 @@ const CardSlider = () => {
     return (
         <Container align="center">
             {current}
+
             {/*<Titles/>*/}
             {/*className='slider'*/}
     <div>
@@ -180,10 +181,10 @@ const CardSlider = () => {
                 {/*<FaFileExport></FaFileExport>*/}
                 {/*<FaRegFileExcel></FaRegFileExcel>*/}
                 {/*<FaFileExcel></FaFileExcel>*/}
+                {/*<FaFileExcel></FaFileExcel>*/}
                 {/*<FaFilePdf></FaFilePdf>*/}
                 {/*<FaReply></FaReply>*/}
 
-                <FaFileDownload  size={30} className='tool-button' color="green"></FaFileDownload>
                 <FaStar  size={30} className='tool-button' color = "yellow"></FaStar>
             <FaFilter  size={30} className='tool-button'  onClick = {()=>{filterClicked=!filterClicked}} color = {(filterClicked===true) ? "yellow" : "black"}> </FaFilter>
                 <FaDice  size={30} className='tool-button' color = "indigo" onClick={()=>{setCurrent(randomCard())}} ></FaDice>
@@ -191,8 +192,11 @@ const CardSlider = () => {
             <FaAngleDoubleRight size={30} className='tool-button'  onClick={()=>{setCurrent(cards.length-1)}} ></FaAngleDoubleRight>
                 <FaArrowAltCircleLeft  size={30} className='tool-button'  onClick={prevCard}></FaArrowAltCircleLeft>
             <FaArrowAltCircleRight size={30} className='tool-button'  onClick={nextCard}></FaArrowAltCircleRight>
+                <FaAngleDoubleRight size={30} className='tool-button'  onClick={()=>{setCurrent(cards.length-1)}} ></FaAngleDoubleRight>
                 <FaRandom size={30} className='tool-button' onClick={()=>{shuffleCards()}} color="orange"></FaRandom>
                 <FaQuestion  size={30} className='tool-button' color = "purple" onClick={()=>{alert("File: Download this Set for use in StudyStream! \n" + "Star: Star a Selected Card \n" + "Filter: Only show started Cards\n" + "Dice: Jump to random card \n" + ">>: Jump to first card \n" + "<<: Jump to last card \n" + "->: Next card\n"+ "<-: Previous card\n"+ "Cross-arrow: Shuffle cards\n")}}></FaQuestion>
+
+                <FaFileDownload  size={30} className='tool-button' color="green"></FaFileDownload>
             </div>
         </Container>
     );

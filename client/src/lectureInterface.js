@@ -53,7 +53,7 @@ const LectInterface = () => {
                       </div>
                     </button>
                     <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
-                        <button  className='button-standard' onClick={deleteLecture()}>
+                        <button  className='button-standard' onClick={deleteLecture()} >
                             <p >Delete</p>
                         </button>
                     </NavLink>
