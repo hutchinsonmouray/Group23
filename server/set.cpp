@@ -2,13 +2,23 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
-#include <unordered_set>
 #include <sstream>
 #include <fstream>
 using namespace std;
 
+/*
+ * TODO
+ * 	⁃	Function to import csv file - Abby
+ * 	⁃	Delete function - Abby
+ * 	⁃	Insert function  - Abby
+ * 	⁃	Merge function - Abby
+ * 	⁃	Edit the csv file function to not use file path  - Abby
+ * 	⁃	Edit csv file function to include title and creator string  - Abby
+ * 	- star functionality -- boolean, getter and setter
 
-unordered_map<string,string> parseIntoCardsFromAudio(string& input)
+*/
+
+unordered_map<string,pair<string,bool>> parseIntoCardsFromAudio(string& input)
 {
     // ================================= //
     // =========== VARIABLES =========== //
@@ -16,7 +26,7 @@ unordered_map<string,string> parseIntoCardsFromAudio(string& input)
 
     enum kind { keyword, definition, period, nothing };
     kind state = nothing;
-    unordered_map<string,string> words;
+    unordered_map<string,pair<string,bool>> words;
     string word; // word variable to store word
     string keywrd = "";
     string def = "";
@@ -42,7 +52,7 @@ unordered_map<string,string> parseIntoCardsFromAudio(string& input)
             if(keywrd != "")
             {
                 //store into map
-                words.insert(pair<string,string>(keywrd,def));
+                words.insert(pair<string,pair<string,bool>>(keywrd, make_pair(def, false)));
             }
             //reset vars
             state = nothing;
@@ -55,11 +65,10 @@ unordered_map<string,string> parseIntoCardsFromAudio(string& input)
     }
 
     if (words.size() != 0) cout << "Flash cards created from teacher audio! " << endl << endl;
-return words;
-
+    return words;
 }
 
-unordered_map<string,string> parseIntoCardsFromChat(string& input)
+unordered_map<string,pair<string,bool>> parseIntoCardsFromChat(string& input)
 {
     // ================================= //
     // =========== VARIABLES =========== //
@@ -67,7 +76,7 @@ unordered_map<string,string> parseIntoCardsFromChat(string& input)
 
     enum kind { keyword, definition, period, nothing };
     kind state = nothing;
-    unordered_map<string,string> words;
+    unordered_map<string,pair<string,bool>>  words;
     string word; // word variable to store word
     string keywrd = "";
     string def = "";
@@ -93,7 +102,7 @@ unordered_map<string,string> parseIntoCardsFromChat(string& input)
             if(keywrd != "")
             {
                 //store into map
-                words.insert(pair<string,string>(keywrd,def));
+                words.insert(pair<string,pair<string,bool>>(keywrd, make_pair(def, false)));
             }
             //reset vars
             state = nothing;
@@ -110,25 +119,65 @@ unordered_map<string,string> parseIntoCardsFromChat(string& input)
 
 }
 
-void createCSV(unordered_map<string,string>& words)
+unordered_map<string,pair<string,bool>> importCSV(string filePath){
+
+    unordered_map<string,pair<string,bool>> newSet;
+
+    ifstream inFile(filePath);
+
+    if(inFile.is_open())
+    {
+        string lineFromFile;
+        getline(inFile, lineFromFile);
+        istringstream stream(lineFromFile); //stream of data coming from first line
+
+        string creator, title;
+
+        getline(stream, creator, '\n');
+
+        getline(inFile, lineFromFile);
+        getline(stream, title, '\n');
+
+
+        //first line
+        while (getline(inFile, lineFromFile))
+        {
+            istringstream stream(lineFromFile); //stream of data coming from first line
+
+            string keyword, def;
+            //reading cards now
+            getline(stream, keyword, ',');
+            getline(stream, def, '\n');
+
+            newSet.insert(pair<string,pair<string,bool>>(keyword, make_pair(def, false)));
+        }
+
+        return newSet;
+    }
+
+    else
+    {
+        cout << "file is not open" << endl;
+    }
+
+}
+
+void createCSV(unordered_map<string,pair<string,bool>>& words, string title, string creator)
 {
-    ofstream myfile;
-    myfile.open ("/Users/abigailmartinez/Desktop/csv.txt");
-    unordered_map<string, string>::iterator it;
+    ofstream myfile("../csv.csv");
+    unordered_map<string,pair<string,bool>>::iterator it;
+    myfile << creator + "\n" << title + "\n";
     for (it = words.begin(); it != words.end(); it++)
     {
-        myfile << it->first + "," + it->second + "\n";
+        myfile << it->first + "," + it->second.first + "\n";
     }
     myfile.close();
 
     cout << "csv file created." << endl<<endl;
 }
 
-void classInteraction(unordered_map<string,string>& words, string& input)
+void classInteraction(unordered_map<string,pair<string,bool>>& words, string& input)
 {
-    ///is class interaction how many times a teacher and the student says/types the keywords in each lecture?
-        //if so, merge the two maps
-
     //Class interaction from the audio transcript
     vector<string> w;
     string word; // word variable to store word
@@ -145,8 +194,37 @@ void classInteraction(unordered_map<string,string>& words, string& input)
 
 }
 
+//merges original set with new set
+void merge(unordered_map<string,pair<string,bool>>& oldSet, unordered_map<string,pair<string,bool>>& freshSet)
+{
+    oldSet.insert(freshSet.begin(), freshSet.end());
+}
+
+void insertIntoSet(unordered_map<string,pair<string,bool>>& words, string keyword, string def)
+{
+    words.insert(pair<string,pair<string,bool>>(keyword, make_pair(def, false)));
+}
+
+void deleteFromSet(unordered_map<string,pair<string,bool>>& words, string keyword)
+{
+    words.erase(keyword);
+}
+
+void starCard(unordered_map<string,pair<string,bool>>& words, string keyword)
+{
+    unordered_map<string,pair<string,bool>>::iterator it;
+    for (it = words.find(keyword); it != words.end(); it++)
+    {
+        it->second.second = true;
+        break;
+    }
+
+
+}
+
 int main() {
-    unordered_map<string,string> words;
+    unordered_map<string,pair<string,bool>>  set1;
+    unordered_map<string,pair<string,bool>>  set2;
     string input = "    Hello welcome to class\n"
                    "    Today we will be going over algorithms\n"
                    "    Keyword time complexity definition is the computational complexity that describes the amount of computer time it takes to run an algorithm period\n"
@@ -208,13 +286,19 @@ int main() {
                     "keyword hello definition no period\n";
 
 
-    words = parseIntoCardsFromAudio(input3);
+    set1 = parseIntoCardsFromAudio(input3);
 
-    createCSV(words);
+    set2 = parseIntoCardsFromAudio(input);
 
-    classInteraction(words,input3);
+    merge(set1,set2);
 
+    createCSV(set1,"Title", "Creator");
 
+    classInteraction(set1,input3);
+
+    starCard(set1,"test ");
+
+    unordered_map<string,pair<string,bool>> newSet = importCSV("../newCSV.csv");
 
     return 0;
 }

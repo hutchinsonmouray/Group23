@@ -15,8 +15,8 @@ app.get('/hello', function (req, res) {
 });
 
 app.get('/make-cards', function (req, res) {
-  res.send(addon.parseIntoCardsFromAudio(req.body.lecture));
-})
+  res.json(addon.parseIntoCardsFromAudio(req.body.lecture));
+});
  
 app.listen(port, () => {
   // perform a database connection when server starts
