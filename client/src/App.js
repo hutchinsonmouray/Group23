@@ -96,20 +96,20 @@ class App extends React.Component {
     }
     
     callAPI(text) {
-        fetch("/make-cards", {
+        fetch("/make-cards/24", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "transcript" : text
+                "transcript" : text,
             })
         })
             .then( res => res.text() )
             .then( data => this.setState({ apiResponse : data}));
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.callAPI("hello keyword hi definition cool period \nkeyword hi definition no period \nkeyword hi definition si period \nkeyword hello definition no period\n");
     }
 
@@ -148,7 +148,7 @@ render() {
             Want to upload a downloaded lecture? use "Upload a Lecture" <br/>
             Want to upload a downloaded set? use "Upload a Set"  <br/>
             Want to create a Set from scratch? use "Create a Set"<br/>
-                    <p className="App-intro">;{this.state.apiResponse}</p>
+                    <p className="App-intro">{this.state.apiResponse}</p>
 
                 </div>
             </Typography>
