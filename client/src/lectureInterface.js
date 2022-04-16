@@ -34,68 +34,71 @@ function getClassInteraction() {
             <div className='keywords-box'>{keywords}</div>
     );
 }
-const LectInterface = () => {
-    const  classes = useStyles();
-    localStorage.getItem("getCurrentID").toString();
 
-    function downloadLectureasPDF() {
-        return undefined;
-    }
+ class LectInterface extends React.Component {
+// const LectInterface = () => {
+   render() {
+       localStorage.getItem("getCurrentID").toString();
 
-    return (
-        <Container maxidth={"lg"}>
+       function downloadLectureasPDF() {
+           return undefined;
+       }
 
-            <Grid>
-                    {/*<p>About StudyStream</p>*/}
-                    <button className='button-standard' onClick={downloadLectureasPDF()}>
-                      <div className='make-grid'>  <p>Download PDF</p>
-                          {/*<FaFilePdf></FaFilePdf>*/}
-                      </div>
-                    </button>
-                    <NavLink className='right' style={{ textDecoration: 'red' }} to={"/LearnSS"}>
-                        <button  className='button-standard' onClick={deleteLecture()} >
-                            <p >Delete</p>
-                        </button>
-                    </NavLink>
-            </Grid>
+       return (
+           <Container maxidth={"lg"}>
 
-            {/*Header Bar*/}
-                <NavLink  to={"/"} style={{ textDecoration: 'none' }} color='black'>
-                <AppBar className={classes.appBar} position = "static" color ="inherit">
-                    <Typography className={classes.heading} variant="h2" aligin="center">StudyStream</Typography>
-                </AppBar>
-            </NavLink>
+               <Grid>
+                   {/*<p>About StudyStream</p>*/}
+                   <button className='button-standard' onClick={downloadLectureasPDF()}>
+                       <div className='make-grid'><p>Download PDF</p>
+                           {/*<FaFilePdf></FaFilePdf>*/}
+                       </div>
+                   </button>
+                   <NavLink className='right' style={{textDecoration: 'red'}} to={"/LearnSS"}>
+                       <button className='button-standard' onClick={deleteLecture()}>
+                           <p>Delete</p>
+                       </button>
+                   </NavLink>
+               </Grid>
 
-            {localStorage.getItem("getCurrentID").toString()}
-            {/*add a border and make it look nice w/ typ*/}
-            {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
-            {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>*/}
-            {/*<Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>*/}
+               {/*Header Bar*/}
+               <NavLink to={"/"} style={{textDecoration: 'none'}} color='black'>
+                   <AppBar align='center' className='navBar' position="static" color="inherit">
+                       <Typography variant="h2" aligin="center">StudyStream</Typography>
+                   </AppBar>
+               </NavLink>
 
-            <Grow in>
-                <Grid container justify="space-between" alignItems="stretch" flexDirection='row' spacing={3}>
-                    <Grid item xs={12} sm={7}>
-                    </Grid>
-                </Grid>
-            </Grow>
-            <div className='lectureI'>
-                <Typography className='box-with-blue-border' variant="h6">Lecture Name</Typography>
-                    <Paper background-color='black'>
-                    {getLectSummary()}
-                </Paper>
-                {/*Function: getClassInteraction*/}
+               {localStorage.getItem("getCurrentID").toString()}
+               {/*add a border and make it look nice w/ typ*/}
+               {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
+               {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>*/}
+               {/*<Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>*/}
 
-                <div className='classInteraction'>
-                    <Container className='box-with-blue-border' position='relative'>
-                        {getClassInteraction()}
-                    </Container>
-                </div>
-                <div align='right'>
-                    <Typography className='button-standard'>This set was created by INSERT CREATOR</Typography>
-                </div>
-            </div>
-        </Container>
-    );
+               <Grow in>
+                   <Grid container justify="space-between" alignItems="stretch" flexDirection='row' spacing={3}>
+                       <Grid item xs={12} sm={7}>
+                       </Grid>
+                   </Grid>
+               </Grow>
+               <div className='lectureI'>
+                   <Typography className='box-with-blue-border' variant="h6">Lecture Name</Typography>
+                   <Paper background-color='black'>
+                       {getLectSummary()}
+                   </Paper>
+                   {/*Function: getClassInteraction*/}
+                   <Typography align='center' className='set-tool-bar' variant="h6">Keywords</Typography>
+                   <div className='classInteraction'>
+                       <Container className="box-with-blue-border" position='relative'>
+                           {getClassInteraction()}
+                       </Container>
+                   </div>
+                   <div align='right'>
+                       <Typography className='button-standard'>This set was created by INSERT CREATOR</Typography>
+                   </div>
+               </div>
+           </Container>
+       );
+   }
 }
 
 export default LectInterface;

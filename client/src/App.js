@@ -3,6 +3,7 @@ import FileBase from 'react-file-base64';
 import useStyles from './styles';
 import {Container, AppBar, Typography, Grow, Grid, Button, Paper, TextField, Checkbox} from '@material-ui/core';
 import {NavLink} from "react-router-dom";
+
 function ExportLecture() {
     //runs the c++ add on that exports the file to csv;
     localStorage.getItem("creator").
@@ -93,19 +94,21 @@ class App extends React.Component {
         super(props);
         this.state = { apiResponse: "" };
     }
-    
+
     callAPI() {
-        fetch("/hello")
+        fetch("/make-cards")
             .then(res => res.text())
-            .then(data => this.setState({ apiResponse: data }));
+            .then(res => this.setState({ apiResponse: res }));
     }
-    
+
     componentWillMount() {
         this.callAPI();
     }
-    
 
 render() {
+
+
+
     return (
         <Container container justify="center" maxidth={"lg"} align="center">
 
@@ -137,8 +140,9 @@ render() {
             Want to upload a downloaded lecture? use "Upload a Lecture" <br/>
             Want to upload a downloaded set? use "Upload a Set"  <br/>
             Want to create a Set from scratch? use "Create a Set"<br/>
+                    <p className="App-intro">;{this.state.apiResponse}</p>
+
                 </div>
-            <p className="App-intro">{this.state.apiResponse}</p>
             </Typography>
 
             <Grid className='uploadBox'>
