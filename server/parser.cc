@@ -120,43 +120,6 @@ Napi::Object parseIntoCardsFromChat(const Napi::CallbackInfo& info)
 
 }
 
-/*
-void createCSV(unordered_map<string,string>& words)
-{
-    ofstream myfile;
-    myfile.open ("/Users/abigailmartinez/Desktop/csv.txt");
-    unordered_map<string, string>::iterator it;
-    for (it = words.begin(); it != words.end(); it++)
-    {
-        myfile << it->first + "," + it->second + "\n";
-    }
-    myfile.close();
-
-    cout << "csv file created." << endl<<endl;
-}
-
-void classInteraction(unordered_map<string,string>& words, string& input)
-{
-    ///is class interaction how many times a teacher and the student says/types the keywords in each lecture?
-        //if so, merge the two maps
-
-    //Class interaction from the audio transcript
-    vector<string> w;
-    string word; // word variable to store word
-    stringstream iss(input);
-    while (iss >> word) w.push_back(word);
-
-    unordered_map<std::string , int> count;
-    for (const string & s : w) { ++count[s]; }
-
-    cout << "printing class interaction" << endl;
-    for (const auto & p : count)
-        if ( words.find(p.first + ' ') != words.end())
-            cout << "Word '" << p.first << "' occurs " << p.second << " times.\n";
-
-}
-*/
-
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
   exports.Set(Napi::String::New(env, "parseIntoCardsFromAudio"),
               Napi::Function::New(env, parseIntoCardsFromAudio));
