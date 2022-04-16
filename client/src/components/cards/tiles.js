@@ -189,7 +189,6 @@ const CardSlider = () => {
             <FaFilter  size={30} className='tool-button'  onClick = {()=>{filterClicked=!filterClicked}} color = {(filterClicked===true) ? "yellow" : "black"}> </FaFilter>
                 <FaDice  size={30} className='tool-button' color = "indigo" onClick={()=>{setCurrent(randomCard())}} ></FaDice>
                 <FaAngleDoubleLeft  size={30} className='tool-button' onClick={()=>{setCurrent(0)}} ></FaAngleDoubleLeft>
-            <FaAngleDoubleRight size={30} className='tool-button'  onClick={()=>{setCurrent(cards.length-1)}} ></FaAngleDoubleRight>
                 <FaArrowAltCircleLeft  size={30} className='tool-button'  onClick={prevCard}></FaArrowAltCircleLeft>
             <FaArrowAltCircleRight size={30} className='tool-button'  onClick={nextCard}></FaArrowAltCircleRight>
                 <FaAngleDoubleRight size={30} className='tool-button'  onClick={()=>{setCurrent(cards.length-1)}} ></FaAngleDoubleRight>
