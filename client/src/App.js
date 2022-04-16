@@ -94,14 +94,22 @@ class App extends React.Component {
         this.state = { apiResponse: "" };
     }
     
-    callAPI() {
-        fetch("/hello")
-            .then(res => res.text())
-            .then(data => this.setState({ apiResponse: data }));
+    callAPI(text) {
+        fetch("/make-cards", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "transcript" : text
+            })
+        })
+            .then( res => res.text() )
+            .then( data => this.setState({ apiResponse : data}));
     }
     
     componentWillMount() {
-        this.callAPI();
+        this.callAPI("hello keyword hi definition cool period \nkeyword hi definition no period \nkeyword hi definition si period \nkeyword hello definition no period\n");
     }
     
 
