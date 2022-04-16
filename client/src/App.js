@@ -3,6 +3,7 @@ import FileBase from 'react-file-base64';
 import useStyles from './styles';
 import {Container, AppBar, Typography, Grow, Grid, Button, Paper, TextField, Checkbox} from '@material-ui/core';
 import {NavLink} from "react-router-dom";
+
 function ExportLecture() {
     //runs the c++ add on that exports the file to csv;
     localStorage.getItem("creator").
@@ -93,6 +94,7 @@ class App extends React.Component {
         super(props);
         this.state = { apiResponse: "" };
     }
+<<<<<<< HEAD
     
     callAPI(text) {
         fetch("/make-cards", {
@@ -106,14 +108,23 @@ class App extends React.Component {
         })
             .then( res => res.text() )
             .then( data => this.setState({ apiResponse : data}));
+=======
+
+    callAPI() {
+        fetch("/make-cards")
+            .then(res => res.text())
+            .then(res => this.setState({ apiResponse: res }));
+>>>>>>> e6518210fd4285e7b51920e836469180f6aa2be2
     }
-    
+
     componentWillMount() {
         this.callAPI("hello keyword hi definition cool period \nkeyword hi definition no period \nkeyword hi definition si period \nkeyword hello definition no period\n");
     }
-    
 
 render() {
+
+
+
     return (
         <Container container justify="center" maxidth={"lg"} align="center">
 
@@ -145,8 +156,9 @@ render() {
             Want to upload a downloaded lecture? use "Upload a Lecture" <br/>
             Want to upload a downloaded set? use "Upload a Set"  <br/>
             Want to create a Set from scratch? use "Create a Set"<br/>
+                    <p className="App-intro">;{this.state.apiResponse}</p>
+
                 </div>
-            <p className="App-intro">{this.state.apiResponse}</p>
             </Typography>
 
             <Grid className='uploadBox'>
