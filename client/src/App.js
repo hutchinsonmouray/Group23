@@ -94,7 +94,6 @@ class App extends React.Component {
         super(props);
         this.state = { apiResponse: "" };
     }
-<<<<<<< HEAD
     
     callAPI(text) {
         fetch("/make-cards", {
@@ -108,13 +107,6 @@ class App extends React.Component {
         })
             .then( res => res.text() )
             .then( data => this.setState({ apiResponse : data}));
-=======
-
-    callAPI() {
-        fetch("/make-cards")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }));
->>>>>>> e6518210fd4285e7b51920e836469180f6aa2be2
     }
 
     componentWillMount() {
