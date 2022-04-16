@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {Component,useEffect, useState} from 'react';
 import Tile from "./tile";
 import {Card, Container, Grid, GridListTileBar, Grow, Radio, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 import "./tile.css";
+
 
 
 function setid() {
@@ -10,9 +11,10 @@ function setid() {
 }
 
 localStorage.setItem("titleTile","T")
-
-function Tiles() {
-    // get stored tiles
+class Tiles extends React.Component {
+// function Tiles() {_
+    render(){
+        // get stored tiles
     let currentID = 100
     console.log(currentID)
 
@@ -50,21 +52,23 @@ function Tiles() {
 
     return (
         <Container className='home-columns' position = "static">
-                <div className='overflow'>
-                    <Typography className='box-with-blue-border' variant="h4">Sets</Typography>
-                    <div className='tilesBox'>
-                        {sets}
-                    </div>
-                </div>
             <div className='overflow'>
-                   <Typography className='box-with-blue-border' variant="h4">Lectures</Typography>
-                   <div className="tilesBox">
-                       {lectures}
-                   </div>
-               </div>
+                <Typography className='box-with-blue-border' variant="h4">Sets</Typography>
+                <div className='tilesBox'>
+                    {sets}
+                </div>
+            </div>
+            <div className='overflow'>
+                <Typography className='box-with-blue-border' variant="h4">Lectures</Typography>
+                <div className="tilesBox">
+                    {lectures}
+                </div>
+            </div>
         </Container>
 
     );
+}
+
 }
 
 export default Tiles;
