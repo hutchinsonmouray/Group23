@@ -36,7 +36,7 @@ class SetInterface extends React.Component {
                 </Grid>
 
                 <NavLink to={"/"} style={{textDecoration: 'none'}} color='black'>
-                    <AppBar className='navBar' position="static" color="inherit">
+                    <AppBar align = "center" className='navBar' position="static" color="inherit">
                         <Typography variant="h2" aligin="center">StudyStream</Typography>
                     </AppBar>
                 </NavLink>
