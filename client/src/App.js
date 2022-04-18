@@ -82,40 +82,30 @@ function uploadLecture1() {
     return uploadLecture();
 }
 
-class App extends React.Component {
-    setSetData(param) {
-        localStorage.setItem('myData',param);
-    }
-    setSetData(selectedFile) {
-        localStorage.setItem('myData',selectedFile);
-    };
+function setSetData(param) {
+    localStorage.setItem('myData',param);
+}
+function etSetData(selectedFile) {
+    localStorage.setItem('myData',selectedFile);
+};
 
-    constructor(props) {
-        super(props);
-        this.state = { apiResponse: "" };
-    }
-    
-    callAPI(text) {
-        fetch("/make-cards/24", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "transcript" : text,
-            })
+function callAPI(text) {
+    fetch("/make-cards/24", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "transcript" : text,
+            "creator" : "bob",
+            "title" : "THE_TITLE"
         })
-            .then( res => res.text() )
-            .then( data => this.setState({ apiResponse : data}));
-    }
+    })
+}
 
-    componentDidMount() {
-        this.callAPI("hello keyword hi definition cool period \nkeyword hi definition no period \nkeyword hi definition si period \nkeyword hello definition no period\n");
-    }
+class App extends React.Component {
 
 render() {
-
-
 
     return (
         <Container container justify="center" maxidth={"lg"} align="center">
@@ -148,23 +138,22 @@ render() {
             Want to upload a downloaded lecture? use "Upload a Lecture" <br/>
             Want to upload a downloaded set? use "Upload a Set"  <br/>
             Want to create a Set from scratch? use "Create a Set"<br/>
-                    <p className="App-intro">{this.state.apiResponse}</p>
 
                 </div>
             </Typography>
 
             <Grid className='uploadBox'>
             {/*Lecture*/}
-                    <form autoComplete="off" noValidate onSubmit={saveLecture()} className='form'>
+                    <form autoComplete="off" noValidate onSubmit={callAPI("bob")} className='form'>
                         {/*<div className='banner-container'>*/}
                         <Typography variant="h6">{'Create a Lecture'}</Typography>
                         {/*</div>*/}
-                        <TextField name="creator" variant="outlined" label="Creator" fullWidth onChange={(e) => setPostData("creator",e.target.value)} />
-                        <TextField name="message" variant="outlined" label="Title" fullWidth onChange={(e) =>  setPostData("title",e.target.value)} />
-                        <TextField name="message" variant="outlined" label="Paste Lecture Here" fullWidth onChange={(e) =>  setPostData("text",e.target.value)} />
-                        <Button onClick={saveLecture()} variant="contained" color="default" size="large" type="submit" fullWidth>Create a Lecture</Button>
+                        <TextField name="creator" variant="outlined" label="Creator" id="creator" fullWidth onChange={(e) => setPostData("creator",e.target.value)} />
+                        <TextField name="message" variant="outlined" label="Title" id="title" fullWidth onChange={(e) =>  setPostData("title",e.target.value)}/>
+                        <TextField name="message" variant="outlined" label="Paste Lecture Here" id="pasteLecture" fullWidth onChange={(e) =>  setPostData("text",e.target.value)}/>
+                        <Button variant="contained" color="default" size="large" type="submit" fullWidth>Create a Lecture</Button>
                         <div>
-                            <Checkbox onSubmit={()=>{ if (onclick(true)) {saveSet()}}}></Checkbox>
+                            <Checkbox></Checkbox>
                            <Typography variant="caption">
                                Auto-generate a set from this lecture?
                            </Typography>
