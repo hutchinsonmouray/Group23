@@ -26,7 +26,9 @@ functionRoutes.route('/make-cards/:id').post( function (req, res) {
     let myobj = {
         _id: ObjectId( parseInt(req.params.id) ),
         number: req.params.id,
-        set: cardSet
+        set: cardSet,
+        creator : req.body.creator,
+        title : req.body.title
     };
     db_connect.collection("records").insertOne(myobj, function (err, response) {
         if (err) throw err;
