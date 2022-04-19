@@ -5,59 +5,8 @@ import Tiles from "./components/tiles/tiles"
 import {AppBar, Button, Checkbox, CircularProgress, Container, Grid, Grow, Menu, MenuItem, Paper, Tab, TableRow, TextField, Typography
 } from "@material-ui/core";
 
-// trying to get lecture info
-function getLecturesFin() {
-    localStorage.setItem('1','my Value Name')
-    localStorage.setItem('2','my Value Name')
-    localStorage.setItem('3','my Value Name')
-    localStorage.setItem('4','my Value Name')
-    console.log('my Value Name')
-
-    // let lects = <paper>test lect views</paper>;
-    // let lects = [<menuitem></menuitem>]
-    let lects = []
-
-
-    for (let localStorageKey in localStorage) {
-       let lectName = localStorage.getItem(localStorageKey)
-       let lectNameA = [{lectName}]
-        // lects = lects.concat(...lects, {lectNameA})
-    }
-
-    return lects;
-}
-function setLectures() {
-    localStorage.setItem('myData','my Value Name')
-    console.log('my Value Name')
-    let data = localStorage.getItem('myData')
-    return [<MenuItem>{data}</MenuItem>, <MenuItem>{data}</MenuItem>];
-}
-function getLectures() {
-    let data = localStorage.getItem('myData');
-    console.log(data)
-    return data;
-}
-const Lectures = () => {
-
-    return (
-        <div>Lct</div>
-    );
-}
-
-function navbar(props) {
-    return (
-      <nav className='navBar'>
-          <ul className='navBar-nav'>
-              {props.children}
-          </ul>
-      </nav>
-    );
-}
-// trying to get lecture info
-
 // export default function Home() {
 export default class Home extends React.Component {
-    // const classes = useStyles();
     render() {
         return (
             <div>
@@ -70,10 +19,6 @@ export default class Home extends React.Component {
                             </button>
                         </NavLink>
                         <NavLink to={"/upload_set"} style={{textDecoration: 'none'}}>
-                            {/*<p>Manage Sets & Lectures</p>*/}
-
-                            {console.log("localStorage.length")}
-                            {console.log(localStorage.length)}
 
                             <button className='button-standard'>
                                 <p>Manage Sets & Lectures</p>

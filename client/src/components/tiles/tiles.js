@@ -3,33 +3,48 @@ import Tile from "./tile";
 import {Card, Container, Grid, GridListTileBar, Grow, Radio, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 import "./tile.css";
+import axios from "axios";
 
-
-
-function setid() {
-    return undefined;
+function CallAPI_Us() {
+    fetch("/get-set/4")
+        .then(res => res.json())
+        .then(data => {
+            return (data.creator).toString();
+            console.log(data.creator);
+        });
+    return "Tile"
 }
 
-localStorage.setItem("titleTile","T")
-class Tiles extends React.Component {
-// function Tiles() {_
-    render(){
+// class Tiles extends React.Component {
+let index = 1;
+let currentID = 1;
+
+function Tiles () {
+    const [posts, setPosts] = useState([]);
+    useEffect(()=>{
+        axios.get("/get-set/1")
+            .then(res=>{
+                    console.log(res)
+                    setPosts(res.data.title)
+                }
+            )
+    })
+
+    // render(){
         // get stored tiles
-    let currentID = 100
-    console.log(currentID)
+    console.log("Reset")
 
     let lectures = []
     let sets = []
 
     //Get the lectures from c++
-    for (let i = 0; i<25; i++) {
-        localStorage.setItem("titleTile","T")
+    for (let i = 1; i<15; i++) {
 
         lectures.push(
             <NavLink className='nav' to='./lecture_interface'style={{ textDecoration: 'none', color: 'black'}} onClick={()=>{
             currentID=i
             localStorage.setItem("getCurrentID",currentID)
-            console.log(currentID)
+                console.log(currentID)
         }}>
           <Tile/>
             </NavLink>
@@ -37,15 +52,13 @@ class Tiles extends React.Component {
     }
 
 //Get the sets from
-    for (let i = 25; i<50; i++) {
-        localStorage.setItem("titleTile","G")
-
+    for (let i = 1; i<15; i++) {
         sets.push(
             <NavLink className='nav' to='./set_interface'style={{ textDecoration: 'none', color: 'black'}} onClick={()=>{
             currentID=i
             localStorage.setItem("getCurrentID",currentID)
-            console.log(currentID)}}>
-                <Tile/>
+                console.log(currentID)}}>
+                <Tile></Tile>
             </NavLink>
         )
     }
@@ -55,7 +68,8 @@ class Tiles extends React.Component {
             <div className='overflow'>
                 <Typography className='box-with-blue-border' variant="h4">Sets</Typography>
                 <div className='tilesBox'>
-                    {sets}
+                    <> {sets}</>
+
                 </div>
             </div>
             <div className='overflow'>
@@ -67,7 +81,7 @@ class Tiles extends React.Component {
         </Container>
 
     );
-}
+// }
 
 }
 
