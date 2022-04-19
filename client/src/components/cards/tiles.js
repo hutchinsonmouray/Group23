@@ -90,7 +90,7 @@ class Titles extends React.Component {
                     direction={this.state.directionStack}
                     // onClick={()=> alert("Hello")}
                     // onMouseEnter={()=> <Tile/>}>
-                     onClick={()=> <Tile/>}>
+                    onClick={()=> <Tile/>}>
                     <div>i</div>
                 </StackCard>
             </div>
@@ -162,19 +162,19 @@ const CardSlider = () => {
 
             {/*<Titles/>*/}
             {/*className='slider'*/}
-    <div>
+            <div>
                 {cards.map((card,index)=>{ return (
                     <div>
-                <div>
-                    {
-                        index === current && (cards.at(index))
-                    }
-                    {/*{index}*/}
-                </div>
+                        <div>
+                            {
+                                index === current && (cards.at(index))
+                            }
+                            {/*{index}*/}
+                        </div>
                     </div>
-            );
-            })}
-                </div>
+                );
+                })}
+            </div>
 
             <div className='set-tool-bar'>
                 {/*<FaFileDownload></FaFileDownload>*/}
@@ -186,11 +186,11 @@ const CardSlider = () => {
                 {/*<FaReply></FaReply>*/}
 
                 <FaStar  size={30} className='tool-button' color = "yellow"></FaStar>
-            <FaFilter  size={30} className='tool-button'  onClick = {()=>{filterClicked=!filterClicked}} color = {(filterClicked===true) ? "yellow" : "black"}> </FaFilter>
+                <FaFilter  size={30} className='tool-button'  onClick = {()=>{filterClicked=!filterClicked}} color = {(filterClicked===true) ? "yellow" : "black"}> </FaFilter>
                 <FaDice  size={30} className='tool-button' color = "indigo" onClick={()=>{setCurrent(randomCard())}} ></FaDice>
                 <FaAngleDoubleLeft  size={30} className='tool-button' onClick={()=>{setCurrent(0)}} ></FaAngleDoubleLeft>
                 <FaArrowAltCircleLeft  size={30} className='tool-button'  onClick={prevCard}></FaArrowAltCircleLeft>
-            <FaArrowAltCircleRight size={30} className='tool-button'  onClick={nextCard}></FaArrowAltCircleRight>
+                <FaArrowAltCircleRight size={30} className='tool-button'  onClick={nextCard}></FaArrowAltCircleRight>
                 <FaAngleDoubleRight size={30} className='tool-button'  onClick={()=>{setCurrent(cards.length-1)}} ></FaAngleDoubleRight>
                 <FaRandom size={30} className='tool-button' onClick={()=>{shuffleCards()}} color="orange"></FaRandom>
                 <FaQuestion  size={30} className='tool-button' color = "purple" onClick={()=>{alert("File: Download this Set for use in StudyStream! \n" + "Star: Star the current card \n" + "Filter: Only show starred cards\n" + "Dice: Jump to random card \n" + ">>: Jump to last card \n" + "<<: Jump to first card \n" + "->: Next card\n"+ "<-: Previous card\n"+ "Cross-arrow: Shuffle cards\n")}}></FaQuestion>
@@ -210,14 +210,14 @@ function Tiles() {
     if (cards.length===0) { //makes it only get cards once
 
         for (let i = 25; i<50; i++) {
-        localStorage.setItem("titleTile","G")
-        localStorage.setItem("getCurrentID",currentID)
-        console.log(currentID)
+            localStorage.setItem("titleTile","G")
+            localStorage.setItem("getCurrentID",currentID)
+            console.log(currentID)
 
             cards.push(
                 <Tile/>
-        )
-    }}
+            )
+        }}
 
 
 

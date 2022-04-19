@@ -1,21 +1,32 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import useStyles from "./styles";
 import {AppBar, Checkbox, Container, Grid, Grow, Paper, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 import Tiles from './components/cards/tiles'
 import Tile from './components/cards/tile'
+import axios from "axios";
 
-function getCurrentId() {
-// gets the set id from the db
-}
+const SetInterface  = () => {
+    // render() {
 
-function deleteSet() {
-    return <div onClick={()=> alert("Are you Sure?")}/>;
-}
+    const [posts, setPosts]= useState([]);
+    const [creator, setCreator]= useState([]);
+    const [cardsKeys, setCardKeys]= useState([]);
+    const [cardsVals, setCardsVals]= useState([]);
 
-class SetInterface extends React.Component {
-    render() {
-        localStorage.getItem("getCurrentID");
+    let index = "6"
+    useEffect(()=>{
+        axios.get("/get-set/" + index)
+            .then(res=>{
+                    console.log(res)
+                    setPosts(res.data.title)
+                    setCreator(res.data.creator)
+                setCardsVals(Object.values(res.data.set))
+                setCardKeys(Object.keys(res.data.set))
+                }
+            )
+        // .catch(console.log(onerror))
+    },[])
 
         return (
             <Container maxidth={"lg"}>
@@ -41,24 +52,23 @@ class SetInterface extends React.Component {
                     </AppBar>
                 </NavLink>
 
-
                 {localStorage.getItem("getCurrentID").toString()}
                 {/*add a border and make it look nice w/ typ*/}
                 {/*<Typography className={classes.heading} variant="h5" aligin="center">h5 Set interface</Typography>*/}
                 {/*<Typography className={classes.heading} variant="subtitle1" aligin="center"> subtitle1 Set interface</Typography>*/}
                 {/*<Typography className={classes.heading} variant="body2" aligin="center">body2 Set interface</Typography>*/}
-                <Typography className='box-with-blue-border' variant="h6">Set Name</Typography>
+                <Typography className='box-with-blue-border' variant="h6">{posts}</Typography>
                 {/*<div className="lectureI">*/}
                 <Container className='box-with-blue-border'>
-                    <Tiles></Tiles>
+                    <Tiles/>
                 </Container>
                 <div align='right'>
-                    <Typography className='button-standard'>This set was created by INSERT CREATOR</Typography>
+                    <Typography className='button-standard'>This set was made by: {creator}</Typography>
                 </div>
                 {/*</div>*/}
             </Container>
         );
-    }
+    // }
 }
 
 export default SetInterface;

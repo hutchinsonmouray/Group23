@@ -2,7 +2,7 @@
 // import ReactDOM from 'react-dom';
 // import {Provider, useDispatch} from 'react-redux';
 // import {createStore,applyMiddleware,compose} from 'redux';
-// import thunk from 'redux-thunk';
+// import thunk from 'redux-thunk';`
 // import reducers from "./reducers";
 //
 //
@@ -46,17 +46,18 @@ const LearnSS = () => {
                     {/*<Typography className={classes.heading} variant="body2" aligin="center">h5 LearnSS</Typography>*/}
                       <div ><Paper>
                           <Typography  variant="h5" aligin="center">Purpose</Typography>
-                          <div>Purpose</div>
+                          <Typography  variant="body1" aligin="center">Purpose --> ABBY TYPE HERE Purpose
+                          </Typography>
                       </Paper></div>
 
 
                 <Paper>
                 <Typography className={classes.heading} variant="h5" aligin="center">User Guide</Typography>
-                        User Guide
+                    <Typography  variant="body1" aligin="center">User Guide --> ABBY TYPE HERE Purpose</Typography>
                 </Paper>
                 <Paper>
                 <Typography className={classes.heading} variant="h5" aligin="center">FAQs</Typography>
-                        FAQs
+                    <Typography  variant="body1" aligin="center">FAQ --> ABBY TYPE HERE Purpose</Typography>
                 </Paper>
             </div>
         </Container>

@@ -19,6 +19,16 @@ functionRoutes.route('/get-set/:id').get( function (req, res) {
             res.json(result);
         });
 });
+
+functionRoutes.route('/get-sets').get( function (req, res) {
+    let db_connect = dbo.getDb();
+    db_connect.collection("records")
+        console.log(db_connect)
+        // .map(function (err, result) {
+        //     if (err) throw err;
+        //     res.json(result);
+        // });
+});
   
 functionRoutes.route('/make-cards/:id').post( function (req, res) {
     let cardSet = addon.parseIntoCardsFromAudio(req.body.transcript);

@@ -1,10 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import useStyles from "./styles";
 import lectureI from './styles.css';
 import {AppBar, Container, Grid, GridListTileBar, Grow, Menu, MenuItem, Paper, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
 import {red} from "@material-ui/core/colors";
 import {FaFilePdf} from "react-icons/fa";
+import axios from "axios";
 
 function deleteLecture() {
     //remove item from cpp stored file??
@@ -35,18 +36,40 @@ function getClassInteraction() {
     );
 }
 
- class LectInterface extends React.Component {
-// const LectInterface = () => {
-   render() {
+ // class LectInterface extends React.Component {
+const LectInterface = () => {
+   // render() {
        localStorage.getItem("getCurrentID").toString();
 
-       function downloadLectureasPDF() {
+
+    const [posts, setPosts] = useState([]);
+    const [creator,setCreator] = useState([]);
+    const [summary,setSummary] = useState([]);
+
+
+    let index = localStorage.getItem("getCurrentID").toString();
+    useEffect(()=>{
+        axios.get("/get-set/" + index)
+            .then(res=>{
+                    console.log(res)
+                    setPosts(res.data.title)
+                // setPosts(JSON.stringify(res.data.set.keys().toJSON()))
+                setCreator(res.data.creator)
+                setSummary.push(res.data.set)
+                }
+            )
+        // .catch(console.log(onerror))
+    })
+
+
+    function downloadLectureasPDF() {
            return undefined;
        }
 
        return (
            <Container maxidth={"lg"}>
-
+               {creator}
+               {posts}
                <Grid>
                    {/*<p>About StudyStream</p>*/}
                    <button className='button-standard' onClick={downloadLectureasPDF()}>
@@ -81,7 +104,7 @@ function getClassInteraction() {
                    </Grid>
                </Grow>
                <div className='lectureI'>
-                   <Typography className='box-with-blue-border' variant="h6">Lecture Name</Typography>
+                   <Typography className='box-with-blue-border' variant="h6">{posts}</Typography>
                    <Paper background-color='black'>
                        {getLectSummary()}
                    </Paper>
@@ -93,12 +116,12 @@ function getClassInteraction() {
                        </Container>
                    </div>
                    <div align='right'>
-                       <Typography className='button-standard'>This set was created by INSERT CREATOR</Typography>
+                       <Typography className='button-standard'>This set was created by {creator}</Typography>
                    </div>
                </div>
            </Container>
        );
-   }
+
 }
 
 export default LectInterface;
