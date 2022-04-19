@@ -42,7 +42,7 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 
 Start Node.js server and React.js client in the root directory
-    ```sh
+   ```sh
    npm start
    ```
 
