@@ -27,103 +27,50 @@ import {
     FaShapes,
     FaStar,
 } from "react-icons/fa";
+import axios from "axios";
 
-class Titles extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            directionTinder: "swipeCornerDownRight",
-            // directionToggle: "sideSlide",
-            // directionTinder: "swipeCornerDownRight",
-
-            directionToggle: "sideSlide",
-            directionStack: "topRight",
-            isOpen: false
-        }
-        this.Tinder = null
-    }
-
-    onTinderSwipe() {
-        this.Tinder.swipe()
-    }
-    onToggle() {
-        this.setState({isOpen: !this.state.isOpen})
-    }
-
-    render() {
-        const arr = ["first", "second", "third", "fourth"]
-        const numbers = [0, 1, 2, 3]
-        return (
-            <div>
-                <ToggleCard
-                    images={arr}
-                    width="350"
-                    height="240"
-                    direction={this.state.directionToggle}
-                    direction='right'
-                    duration={400}
-                    className="toggle"
-                    isOpen={this.state.isOpen}
-                    onClick={()=> alert("Hello")}>
-                    { numbers.map( i => <div>{i}</div> )}
-                </ToggleCard>
-                <button onClick={this.onToggle.bind(this)}>Toggle</button>
-
-                <TinderLikeCard
-                    images={arr}
-                    width="350"
-                    height="250"
-                    direction={this.state.directionTinder}
-                    duration={400}
-                    ref={(node) => this.Tinder = node}
-                    className="tinder">
-
-                    { numbers.map( i => <div>{i}</div> )}
-                </TinderLikeCard>
-                <button onClick={this.onTinderSwipe.bind(this)}>Swipe</button>
-
-                <StackCard
-                    color={"#f95c5c"}
-                    width="350"
-                    height="240"
-
-                    direction={this.state.directionStack}
-                    // onClick={()=> alert("Hello")}
-                    // onMouseEnter={()=> <Tile/>}>
-                    onClick={()=> <Tile/>}>
-                    <div>i</div>
-                </StackCard>
-            </div>
-        );
-    }
-}
-function setid() {
-    return undefined;
-}
-
-// let sets = [<Tile/>];
 let cards = []
-
-localStorage.setItem("titleTile","T")
-
 let filterClicked = false;
 
 const CardSlider = () => {
     const [current, setCurrent] = useState(0)
-    let length = cards.length
+    const [keep, setKeep] = useState(0)
 
+    const [currentFront, setCurrentFront] = useState(0)
+    const [currentBack, setCurrentBack] = useState(0)
+
+    useEffect(()=>{
+        axios.get("/get-set/1")
+            .then(res=>{
+                // setCurrentCard(res.data.set.at(0))
+                setCurrent((0))
+                setCurrentFront(Object.keys(res.data.set).at(0))
+                setCurrentBack(Object.values(res.data.set).at(0))
+                console.log(Object.keys(res.data.set))
+                console.log(Object.values(res.data.set))
+                setKeep(Object.values(res.data.set))
+                console.log("ehre")
+                // console.log(currentBack)
+                })
+    },[])
+    let length = cards.length
     if (!Array.isArray(cards) || cards.length==0) {
         return null;
     }
 
     const nextCard = () => {
+        // current = current % keep.size();
         setCurrent(current === length-1 ? 0 : current+1)
+        setCurrentFront(Object.keys(keep).at(current))
+        // setCurrentBack(currentFront.valueOf)
+        setCurrentBack(Object.values(keep).at(current))
         console.log(current);
     };
     const prevCard = () => {
         setCurrent(current === 0 ? length-1 : current-1)
-        console.log(current);
-    };
+        setCurrentFront(Object.keys(keep).at(current))
+        setCurrentBack(Object.values(keep).at(current))
+        console.log(current);    };
     function shuffleCards () {
         let tempCards = [];
         let firstVal = randomCard();
@@ -147,7 +94,6 @@ const CardSlider = () => {
         // Got random value formula from: https://css-tricks.com/generate-a-random-number/#:~:text=Generating%20a%20random%20number%20with%20JavaScript%20is%20pretty,That%20will%20return%20a%20random%20number%20between%201-100.?msclkid=9a03202eba3d11eca1b013cb817fc2f0
         randVal = Math.floor(Math.random() * 101) % cards.length;
 
-
         setCurrent(current === randVal ? randomCard() : randVal)
         console.log(randVal);
         return randVal;
@@ -158,7 +104,12 @@ const CardSlider = () => {
     // }
     return (
         <Container align="center">
-            {current}
+            {/*{current}*/}
+            <br/>
+            {currentFront}
+            <br/>
+            {currentBack}
+            <br/>
 
             {/*<Titles/>*/}
             {/*className='slider'*/}
@@ -177,13 +128,6 @@ const CardSlider = () => {
             </div>
 
             <div className='set-tool-bar'>
-                {/*<FaFileDownload></FaFileDownload>*/}
-                {/*<FaFileExport></FaFileExport>*/}
-                {/*<FaRegFileExcel></FaRegFileExcel>*/}
-                {/*<FaFileExcel></FaFileExcel>*/}
-                {/*<FaFileExcel></FaFileExcel>*/}
-                {/*<FaFilePdf></FaFilePdf>*/}
-                {/*<FaReply></FaReply>*/}
 
                 <FaStar  size={30} className='tool-button' color = "yellow"></FaStar>
                 <FaFilter  size={30} className='tool-button'  onClick = {()=>{filterClicked=!filterClicked}} color = {(filterClicked===true) ? "yellow" : "black"}> </FaFilter>

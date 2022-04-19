@@ -22,7 +22,7 @@ let currentID = 1;
 function Tiles () {
     const [posts, setPosts] = useState([]);
     useEffect(()=>{
-        axios.get("/get-set/"+index)
+        axios.get("/get-set/1")
             .then(res=>{
                     console.log(res)
                     setPosts(res.data.title)
@@ -38,7 +38,7 @@ function Tiles () {
     let sets = []
 
     //Get the lectures from c++
-    for (let i = 1; i<5; i++) {
+    for (let i = 1; i<15; i++) {
 
         lectures.push(
             <NavLink className='nav' to='./lecture_interface'style={{ textDecoration: 'none', color: 'black'}} onClick={()=>{
@@ -52,7 +52,7 @@ function Tiles () {
     }
 
 //Get the sets from
-    for (let i = 1; i<5; i++) {
+    for (let i = 1; i<15; i++) {
         sets.push(
             <NavLink className='nav' to='./set_interface'style={{ textDecoration: 'none', color: 'black'}} onClick={()=>{
             currentID=i

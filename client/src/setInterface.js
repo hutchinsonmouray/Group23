@@ -14,7 +14,7 @@ const SetInterface  = () => {
     const [cardsKeys, setCardKeys]= useState([]);
     const [cardsVals, setCardsVals]= useState([]);
 
-    let index = "6"
+    let index = "7"
     useEffect(()=>{
         axios.get("/get-set/" + index)
             .then(res=>{
