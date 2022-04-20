@@ -64,6 +64,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 Adam Horton - adam.horton@ufl.edu
 Angelina Kapiniaris - a.kapiniaris@ufl.edu
+Abigail Martinez - abigailmartinez.uf@gmail.com
 **FIXME**
 
 Project Link: [https://github.com/hutchinsonmouray/StudyStream](https://github.com/hutchinsonmouray/StudyStream)
