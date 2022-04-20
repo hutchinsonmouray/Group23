@@ -63,6 +63,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 ## Contributors/Contact
 
 Adam Horton - adam.horton@ufl.edu
+Angelina Kapiniaris - a.kapiniaris@ufl.edu
 **FIXME**
 
 Project Link: [https://github.com/hutchinsonmouray/StudyStream](https://github.com/hutchinsonmouray/StudyStream)
