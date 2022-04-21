@@ -23,11 +23,10 @@ functionRoutes.route('/get-set/:id').get( function (req, res) {
 functionRoutes.route('/get-sets').get( function (req, res) {
     let db_connect = dbo.getDb();
     db_connect.collection("records")
-        console.log(db_connect)
-        // .map(function (err, result) {
-        //     if (err) throw err;
-        //     res.json(result);
-        // });
+        .map(function (err, result) {
+             if (err) throw err;
+             res.json(result);
+         });
 });
   
 functionRoutes.route('/make-cards/:id').post( function (req, res) {
@@ -43,7 +42,6 @@ functionRoutes.route('/make-cards/:id').post( function (req, res) {
     db_connect.collection("records").insertOne(myobj, function (err, response) {
         if (err) throw err;
         res.json(response);
-        //res.send("Successfully stored to ID to " + req.params.id);
     }); 
 });
 
