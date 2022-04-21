@@ -104,7 +104,7 @@ const CardSlider = () => {
     // }
     return (
         <Container align="center">
-            {/*{current}*/}
+            {current}
             <br/>
             {currentFront}
             <br/>
